@@ -1,0 +1,84 @@
+;; This buffer is for notes you don't want to save, and for Lisp evaluation.
+;; If you want to create a file, visit that file with C-x C-f,
+;; then enter the text in that file's own buffer.
+
+ background yes
+    use_xft yes
+    xftfont Bitstream Vera Sans Mono:size=11
+    xftalpha 0.8
+    update_interval 3.0
+    total_run_times 0
+    own_window yes
+    own_window_type normal
+    own_window_transparent yes
+    own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+    double_buffer yes
+    minimum_size 300 5
+    maximum_width 300
+    draw_shades yes
+    draw_outline no
+    draw_borders no
+    draw_graph_borders no
+
+# Default colors and also border colors
+    default_color green
+    default_outline_color 312B12
+    default_shade_color black
+
+   #alignment top_left
+    alignment top_right
+   #alignment bottom_left
+   #alignment bottom_right
+
+   gap_x 12
+    gap_y 48
+    no_buffers yes
+    uppercase no
+    cpu_avg_samples 2
+    override_utf8_locale yes
+    use_spacer none
+
+    TEXT
+    ${font Bitstream Vera Sans:style=Bold:pixelsize=14}${color 90EE90}TIME ${font}${hr 1}${color}
+    ${font Dustismo:size=10}${time %Y/%m/%d %A}${font}
+    ${font Dustismo:size=38}${alignr}${time %H:%M}${font}
+
+    ${font Bitstream Vera Sans:style=Bold:pixelsize=14}${color 90EE90}SYSTEM ${font}${hr 1}${color}
+    Kernel: $alignr$kernel
+    Uptime: $alignr$uptime
+
+    CPU: ${alignr}${freq}MHz / ${acpitemp}C
+    Processes: ${alignr}$processes ($running_processes running)
+    Load: ${alignr}$loadavg
+
+    CPU${alignr}${cpu cpu1}%
+    ${cpubar 4 cpu1}
+    ${cpugraph cccccc 90EE90}
+
+    Ram ${alignr}$mem / $memmax ($memperc%)
+    ${membar 4}
+    swap ${alignr}$swap / $swapmax ($swapperc%)
+    ${swapbar 4}
+
+    Highest CPU $alignr CPU% MEM%
+    ${top name 1}$alignr${top cpu 1}${top mem 1}
+    ${top name 2}$alignr${top cpu 2}${top mem 2}
+    ${top name 3}$alignr${top cpu 3}${top mem 3}
+
+    Highest MEM $alignr CPU% MEM%
+    ${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
+    ${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
+    ${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
+
+    ${font Bitstream Vera Sans:style=Bold:pixelsize=14}${color 90EE90}FILESYSTEM ${font}${hr 1}${color}
+    Root: ${alignr}${fs_free /} / ${fs_size /}
+    ${fs_bar 4 /}
+    Home: ${alignr}${fs_free /home} / ${fs_size /home}
+    ${fs_bar 4 /home}
+
+    ${font Bitstream Vera Sans:style=Bold:pixelsize=14}${color 90EE90}NETWORK ${font}${hr 1}${color}
+    Down ${downspeed eth0} k/s ${alignr}Up ${upspeed eth0} k/s
+    ${downspeedgraph eth0 25,107 cccccc 90EE90} ${alignr}${upspeedgraph eth0 25,107 cccccc 90EE90}
+    Total ${totaldown eth0} ${alignr}Total ${totalup eth0} 
+
+
