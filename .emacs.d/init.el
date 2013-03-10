@@ -124,7 +124,7 @@
 
 ;; フォント Linux
 ;(set-frame-font "Ricty-11")
-(set-frame-font "Monaco-11")
+(set-frame-font "Monaco-10")
 
 
 ;===============================================================================
