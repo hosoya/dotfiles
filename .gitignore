@@ -6,4 +6,5 @@
 *~
 *.sw[po]
 *.elc
+.emacs.d/history
 
