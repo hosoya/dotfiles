@@ -16,9 +16,9 @@
 ;===============================================================================
 ;; キーバインド
 ;===============================================================================
-(define-key global-map "\C-h" 'delete-backward-char) ; 削除
-(define-key global-map "\M-?" 'help-for-help)        ; ヘルプ
-(define-key global-map "\C-z" 'undo)                 ; undo
+;(define-key global-map "\C-h" 'delete-backward-char) ; 削除
+;(define-key global-map "\M-?" 'help-for-help)        ; ヘルプ
+;(define-key global-map "\C-z" 'undo)                 ; undo           
 
 ;===============================================================================
 ;; anytihng
@@ -100,10 +100,6 @@
 ; current highlight line
 ;(global-hl-line-mode)
 
-;;;; カラーテーマ
-(require 'color-theme)
-(color-theme-dark-laptop)
-
 ;; 画像ファイルを表示
 (auto-image-file-mode t)
 
@@ -126,10 +122,21 @@
 ;(set-frame-font "Ricty-11")
 (set-frame-font "Monaco-10")
 
+;;;; カラーテーマ
+(require 'color-theme)
+(color-theme-dark-laptop)
 
-;===============================================================================
+;; フレームの透明度
+(set-frame-parameter (selected-frame) 'alpha '(0.85))
+
+;; 現在の関数名を表示
+(which-function-mode 1)
+
+;; スタートアップ非表示
+(setq inhibit-startup-screen t)
+
 ;; diffの表示方法を変更
-;===============================================================================
+;===================================================
 ;; (defun diff-mode-setup-faces ()
 ;;   ;; 追加された行は緑で表示
 ;;   (set-face-attribute 'diff-added nil
@@ -149,7 +156,6 @@
 ;;   (diff-auto-refine-mode t))
 ;; (add-hook 'diff-mode-hook 'diff-mode-refine-automatically)
 
-
 ;; setting for diff-mode
 (require 'diff-mode)
 
@@ -167,12 +173,6 @@
                     :foreground "chocolate4"
                     :background "white" :weight 'extra-bold
                     :underline t :inherit nil)
-
-;; 現在の関数名を表示
-(which-function-mode 1)
-
-;; スタートアップ非表示
-(setq inhibit-startup-screen t)
 
 
 ;===============================================================================
@@ -211,9 +211,6 @@
 ;auto-complete
 (require 'auto-complete)
 (global-auto-complete-mode t)
-
-;; フレームの透明度
-(set-frame-parameter (selected-frame) 'alpha '(0.85))
 
 ;; 履歴を次回Emacs起動時にも保存する
 (savehist-mode 1)
