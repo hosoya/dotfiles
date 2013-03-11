@@ -57,10 +57,10 @@
 ;===============================================================================
 ;; mozc 日本語入力
 ;===============================================================================
-(require 'mozc)
-(set-language-environment "Japanese")
-(setq default-input-method "japanese-mozc")
-(global-set-key (kbd "M-`") 'toggle-input-method)
+;(require 'mozc)
+;(set-language-environment "Japanese")
+;(setq default-input-method "japanese-mozc")
+;(global-set-key (kbd "M-`") 'toggle-input-method)
 
 
 ;===============================================================================
@@ -121,11 +121,11 @@
 
 ;; フォント Linux
 ;(set-frame-font "Ricty-11")
-(set-frame-font "Monaco-10")
+;(set-frame-font "Monaco-10")
 
 ;;;; カラーテーマ
-(require 'color-theme)
-(color-theme-dark-laptop)
+;(require 'color-theme)
+;(color-theme-dark-laptop)
 
 ;; フレームの透明度
 (set-frame-parameter (selected-frame) 'alpha '(0.85))
