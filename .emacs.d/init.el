@@ -16,9 +16,10 @@
 ;===============================================================================
 ;; キーバインド
 ;===============================================================================
-;(define-key global-map "\C-h" 'delete-backward-char) ; 削除
-;(define-key global-map "\M-?" 'help-for-help)        ; ヘルプ
-;(define-key global-map "\C-z" 'undo)                 ; undo           
+(define-key global-map "\C-h" 'delete-backward-char) ; 削除
+(define-key global-map "\M-?" 'help-for-help)        ; ヘルプ
+(define-key global-map "\C-z" 'undo)                 ; undo
+
 
 ;===============================================================================
 ;; anytihng
