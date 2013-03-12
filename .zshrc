@@ -55,6 +55,9 @@ setopt numeric_glob_sort
 setopt prompt_subst
 setopt extended_history
 setopt print_eight_bit
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt transient_rprompt  #コマンドの実行直後に右プロンプトが消える
 
 #### Terminal title
 function _update_terminal_title () {
