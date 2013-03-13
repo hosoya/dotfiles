@@ -1,16 +1,18 @@
 ;;; パス
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/lisp")
-(add-to-list 'load-path "~/.emacs.d/auto-install/")
+;(add-to-list 'load-path "~/.emacs.d/auto-install")
 (add-to-list 'load-path "~/.emacs.d/elpa")
-(add-hook 'c-mode-hook
-        '(lambda()
-                (c-set-style "bsd")
-                (setq c-basic-offset 8)
-                (setq tab-width c-basic-offset)
-                (setq indent-tabs-mode t)))
+(add-to-list 'load-path "~/.emacs.d/helm")
 
-(setq ruby-deep-indent-paren-style nil)
+;; (add-hook 'c-mode-hook
+;;         '(lambda()
+;;                 (c-set-style "bsd")
+;;                 (setq c-basic-offset 8)
+;;                 (setq tab-width c-basic-offset)
+;;                 (setq indent-tabs-mode t)))
+
+;; (setq ruby-deep-indent-paren-style nil)
 
 
 ;===============================================================================
@@ -21,6 +23,11 @@
 (define-key global-map "\C-z" 'undo)                 ; undo
 
 
+;(require 'package)
+;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+; (package-initialize)
+
 ;===============================================================================
 ;; anytihng
 ;===============================================================================
@@ -29,29 +36,31 @@
 ;;; interfacing with ELPA, the package archive.
 ;;; Move this code earlier if you want to reference
 ;;; packages in your .emacs.
-(when
-	(load
-	 (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
+;; (when
+;; 	(load2
+;; 	 (expand-file-name "~/.emacs.d/elpa/package.el"))
+;;   (package-initialize))
 
 ;;; moccur
-(require 'moccur-edit)
-(setq moccur-split-word t)
+;(require 'moccur-edit)
+;(setq moccur-split-word t)
 
 ;;; anytihng-el
-(require 'anything-startup)
+;(require 'anything-startup)
+(require 'helm-config)
+(helm-mode 1)
 
 ; auto-async-byte-compile.el
-(require 'auto-async-byte-compile)
-(setq auto-async-byte-compile-exclude-files-regexp "~/.emacs.d/junk/")
-(add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
+;(require 'auto-async-byte-compile)
+;(setq auto-async-byte-compile-exclude-files-regexp "~/.emacs.d/junk/")
+;(add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
 
 ; auto-install
-(require 'auto-install)
-(add-to-list 'load-path "~/.emacs.d/auto-install")
-(setq auto-install-directory "~/.emacs.d/auto-install/")
-(auto-install-update-emacswiki-package-name t)
-(auto-install-compatibility-setup)
+;(require 'auto-install)
+;(add-to-list 'load-path "~/.emacs.d/auto-install")
+;(setq auto-install-directory "~/.emacs.d/auto-install/")
+;(auto-install-update-emacswiki-package-name t)
+;(auto-install-compatibility-setup)
 
 
 ;===============================================================================
@@ -84,9 +93,9 @@
 (require 'linum)
 (global-linum-mode t)      ; デフォルトで linum-mode を有効にする
 ;;; リージョンに色をつける
-(transient-mark-mode 1)
+;(transient-mark-mode 1)
 ;;; おりかえし禁止
-(setq truncate-partial-width-windows t)
+;(setq truncate-partial-width-windows t)
 ;;タブ幅を 8 に設定
 (setq-default tab-width 8)
 
@@ -113,7 +122,7 @@
 ;(setq diff-switches '("-u" "-p" "-N"))
 
 ;; 選択領域の色
-(set-face-background 'region "#842")
+;(set-face-background 'region "#842")
 
 ;; 行末の空白を強調表示
 (setq-default show-trailing-whitespace t)
@@ -121,7 +130,7 @@
 
 ;; フォント Linux
 ;(set-frame-font "Ricty-11")
-(set-frame-font "Monaco-10")
+;(set-frame-font "Monaco-10", nil t)
 
 ;;;; カラーテーマ
 ;(require 'color-theme)
@@ -210,8 +219,8 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;auto-complete
-(require 'auto-complete)
-(global-auto-complete-mode t)
+;(require 'auto-complete)
+;(global-auto-complete-mode t)
 
 ;; 履歴を次回Emacs起動時にも保存する
 (savehist-mode 1)
@@ -221,8 +230,8 @@
 
 ; クリップボードとキルリングを同期させる
 (cond (window-system
-(setq x-select-enable-clipboard t)
-))
+       (setq x-select-enable-clipboard t)
+       ))
 
 ;; diredから"r"でファイル名をインライン編集する
 (require 'dired-x)
@@ -231,6 +240,8 @@
 
 ;;;多重起動の防止
 (server-start)
+
+(autoload 'navi2ch "navi2ch" "Navigator for 2ch for Emacs" t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
