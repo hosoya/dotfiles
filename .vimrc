@@ -7,12 +7,12 @@
 set smartindent
 "set paste
 autocmd FileType c setlocal cindent
-set hidden
-set nrformats-=octal
-set backspace=2
-set autoread
-set splitright
-set splitbelow
+"set hidden
+"set nrformats-=octal
+"set backspace=2
+"set autoread
+"set splitright
+"set splitbelow
 
 " disp
 syntax on
@@ -53,10 +53,10 @@ set smartcase
 set wrapscan
 
 " tab
-set smarttab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+"set smarttab
+"set tabstop=2
+"set softtabstop=2
+"set shiftwidth=2
 autocmd BufNewFile,BufRead * call SetTab()
 function! SetTab()
   if (&syntax == 'c' || &syntax == 'cpp' || &syntax == 'perl' || &syntax == 'python' || &syntax == 'make')
@@ -109,7 +109,7 @@ set noswapfile
 " always mode insert tab
 "noremap <Tab> i<Tab><Esc>
 " toggle highlight search when searching
-nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
+"nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
 nnoremap / :<C-u>set hlsearch<Return>/
 nnoremap ? :<C-u>set hlsearch<Return>?
 nnoremap * :<C-u>set hlsearch<Return>*
