@@ -103,7 +103,7 @@ function _update_vcs_info_msg () {
 
 add-zsh-hook precmd _update_vcs_info_msg
 
-PROMPT=%F{cyan}"${DIST}"%B%F{magenta}'[%n@%m]%f%b %# '%f
+PROMPT=%F{cyan}"${DIST}"%B%F{magenta}'[%n@%M]%f%b %# '%f
 RPROMPT=" %F{yellow}%~ %1(v|%F{green}%2(v|%B%F{red}|)%3(v|%B%F{yellow}|)%1v|)%b%f"
 
 
