@@ -117,11 +117,9 @@ bindkey -e
 
 #### alias
 alias ls='ls -F -v --color'
-alias la='ls -la'
-alias ll='ls -l -h'
-#alias lla='ls -la'
+alias la='ls -la -h --time-style=long-iso'
+alias ll='ls -l -h --time-style=long-iso'
 alias l.='ls -d .*'
-alias hg='hg --encoding utf-8'
 
 #### function
 #function chpwd() { ls }
