@@ -20,5 +20,5 @@ Please execute following command
 * % cd $HOME
 * % git clone https://github.com/hosoya/dotfiles.git
 * % cd dotfiles
-* % souce setup.sh
+* % source setup.sh
 ````
