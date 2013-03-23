@@ -35,9 +35,24 @@
 (auto-install-compatibility-setup)
 
 ;================================================================
+;; MELPA
+;================================================================
+(require 'package)
+
+; Add package-archives
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")) ; ついでにmarmaladeも追加
+
+; Initialize
+(package-initialize)
+
+; melpa.el
+(require 'melpa)
+
+;================================================================
 ;; yasnippet
 ;================================================================
-(require 'yasnippet-bundle)
+(require 'yasnippet)
 
 ;================================================================
 ;; 言語/文字コード
@@ -165,13 +180,12 @@
 ;; (defvar nt-p (eq system-type 'windows-nt))
 
 ;; OS,システム毎の設定
-(if (eq system-type 'gnu/linux)
+(if (eq system-type 'linux)
     (require 'mozc)
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
   (global-set-key (kbd "M-`") 'toggle-input-method)
-  ;; フォント linux ;(set-frame-font "Ricty-11")
-  (set-frame-font "Monaco-10")
+  (set-frame-font "Monaco-10") ;; フォント linux ;
   )
 
 (if window-system
@@ -181,7 +195,10 @@
       (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
       (setq x-select-enable-clipboard t); クリップボードとキルリングを同期させる
       (require 'color-theme)
-      (color-theme-dark-laptop)
+      (require 'color-theme-tango)
+      (require 'color-theme-tangotango)
+      (require 'color-theme-sanityinc-tomorrow)
+      (require 'color-theme-wombat)
       (set-frame-parameter (selected-frame) 'alpha '(0.90)) ;; フレームの透明度
       (tool-bar-mode -1) ;;; メニューバー、スクロールバーを消す
       (toggle-scroll-bar nil)
