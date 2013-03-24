@@ -210,13 +210,13 @@
 ;; (defvar nt-p (eq system-type 'windows-nt))
 
 ;; OS,システム毎の設定
-(if (eq system-type 'linux)
+;(if (eq system-type 'linux)
     (require 'mozc)
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
   (global-set-key (kbd "M-`") 'toggle-input-method)
   (set-frame-font "Monaco-10") ;; フォント linux ;
-  )
+;  )
 
 (if window-system
     (progn
@@ -225,12 +225,13 @@
       (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
       (setq x-select-enable-clipboard t); クリップボードとキルリングを同期させる
       (require 'color-theme)
-      (require 'color-theme-tango)
+;      (require 'color-theme-tango)
       (require 'color-theme-tangotango)
-      (require 'color-theme-sanityinc-tomorrow)
       (require 'color-theme-wombat)
+      (require 'color-theme-sanityinc-tomorrow)
       (set-frame-parameter (selected-frame) 'alpha '(0.90)) ;; フレームの透明度
       (tool-bar-mode -1) ;;; メニューバー、スクロールバーを消す
       (toggle-scroll-bar nil)
       (server-start) ;;;多重起動の防止
       ))
+
