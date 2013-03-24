@@ -115,11 +115,19 @@ SAVEHIST=50000
 #### bindkey
 bindkey -e
 
-#### alias
+
+#### shortcut ####
 alias ls='ls -F -v --color'
 alias la='ls -la -h --time-style=long-iso'
 alias ll='ls -l -h --time-style=long-iso'
 alias l.='ls -d .*'
+alias pd="pushd"
+alias po="popd"
+alias x="exit"
+
+#alias -s {png,jpg,bmp,PNG,JPG,BMP}=eom
+alias -s {png,jpg,bmp,PNG,JPG,BMP}=google-chrome
+alias -s {html,htm,pdf}=google-chrome
 
 #### function
 #function chpwd() { ls }
@@ -129,10 +137,3 @@ alias l.='ls -d .*'
 export EDITOR=emacsclient 
 export PAGER='less -r'
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
-
-
-#### shortcut ####
-#alias -s {png,jpg,bmp,PNG,JPG,BMP}=eom
-alias -s {png,jpg,bmp,PNG,JPG,BMP}=google-chrome
-alias -s {html,htm,pdf}=google-chrome
-
