@@ -124,6 +124,7 @@ alias l.='ls -d .*'
 alias pd="pushd"
 alias po="popd"
 alias x="exit"
+alias diff="diff -u" #unified context
 
 #alias -s {png,jpg,bmp,PNG,JPG,BMP}=eom
 alias -s {png,jpg,bmp,PNG,JPG,BMP}=google-chrome
