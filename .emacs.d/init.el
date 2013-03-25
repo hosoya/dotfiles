@@ -197,6 +197,12 @@
 (require 'wdired)
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 
+;; 最近使ったファイル一覧を表示
+(setq recentf-max-saved-items 5000)
+(setq recentf-exclude '("/TAGS$" "/var/tmp/"))
+(require 'recentf-ext)
+;(global-set-key (kbd "C-@") 'recentf-open-files)
+
 ;================================================================
 ;; Emacs の種類バージョンを判別するための変数を定義
 ;; (defun x->bool (elt) (not (not elt)))
