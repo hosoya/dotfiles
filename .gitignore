@@ -4,7 +4,26 @@
 .#*
 .*~
 *~
+.DS_Store
 *.sw[po]
+tags
+TAGS
+Session.vim
+.svn
+*.dSYM
+*.log
+*.dvi
+*.aux
 *.elc
+
+.vim/bundle/
+.vim/.netrwhist
+.vimrc_sample
+
 .emacs.d/history
 
+# cscope files
+cscope.*
+ncscope.
+
+*.orig
