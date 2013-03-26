@@ -197,29 +197,12 @@
 ;================================================================
 ;; Emacs の種類バージョンを判別するための変数を定義
 ;; @see http://github.com/elim/dotemacs/blob/master/init.el
-(defun x->bool (elt) (not (not elt)))
-(defvar emacs23-p (equal emacs-major-version 23))
-(defvar emacs24-p (equal emacs-major-version 24))
-(defvar darwin-p (eq system-type 'darwin))
-(defvar ns-p (featurep 'ns))
-(defvar mac-p (and (eq window-system 'ns) (or emacs23-p emacs24-p)))
-(defvar linux-p (eq system-type 'gnu/linux))
-(defvar colinux-p (when linux-p
-            (let ((file "/proc/modules"))
-              (and
-               (file-readable-p file)
-               (x->bool
-            (with-temp-buffer
-              (insert-file-contents file)
-              (goto-char (point-min))
-              (re-search-forward "^cofuse\.+" nil t)))))))
-(defvar cygwin-p (eq system-type 'cygwin))
-(defvar nt-p (eq system-type 'windows-nt))
-(defvar meadow-p (featurep 'meadow))
-(defvar windows-p (or cygwin-p nt-p meadow-p))
+;(defun x->bool (elt) (not (not elt))
+;(defvar emacs23-p (equal emacs-major-version 23))
+;(defvar emacs24-p (equal emacs-major-version 24))
+;(defvar linux-p (eq system-type 'gnu/linux))
 
-(cond
- (linux-p
+(when (eq system-type 'gnu/linux)
   (require 'mozc)
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
@@ -229,14 +212,13 @@
   (set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
   (set-default-coding-systems 'utf-8-unix)
   (set-selection-coding-system 'utf-8-unix)
-  (set-buffer-file-coding-system 'utf-8-unix))
- (windows-p
+  (set-buffer-file-coding-system 'utf-8-unix)
+  )
+
+(when (eq system-type 'windows-nt)
   (setq file-name-coding-system 'sjis)
-  (setq locale-coding-system 'sjis))
- (t
-  (setq file-name-coding-system 'utf-8)
-  (setq locale-coding-system 'utf-8))
- )
+  (setq locale-coding-system 'sjis)
+  )
 
 (if window-system
     (progn
