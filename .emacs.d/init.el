@@ -75,15 +75,6 @@
 ;; 既存スニペットを閲覧・編集する
 (define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
 
-;================================================================
-;; 言語/文字コード
-;================================================================
-(prefer-coding-system 'utf-8-unix)
-;(set-language-environment "Japanese")
-(set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
-(set-default-coding-systems 'utf-8-unix)
-(set-selection-coding-system 'utf-8-unix)
-(set-buffer-file-coding-system 'utf-8-unix)
 
 ;================================================================
 ;; indent
@@ -205,24 +196,47 @@
 
 ;================================================================
 ;; Emacs の種類バージョンを判別するための変数を定義
-;; (defun x->bool (elt) (not (not elt)))
-;; (defvar emacs22-p (equal emacs-major-version 22))
-;; (defvar emacs23-p (equal emacs-major-version 23))
-;; (defvar emacs24-p (equal emacs-major-version 24))
-;; (defvar darwin-p (eq system-type 'darwin))
-;; (defvar ns-p (featurep 'ns))
-;; (defvar mac-p (and (eq window-system 'mac) (or emacs23-p emacs24-p)))
-;; (defvar linux-p (eq system-type 'gnu/linux))
-;; (defvar nt-p (eq system-type 'windows-nt))
+;; @see http://github.com/elim/dotemacs/blob/master/init.el
+(defun x->bool (elt) (not (not elt)))
+(defvar emacs23-p (equal emacs-major-version 23))
+(defvar emacs24-p (equal emacs-major-version 24))
+(defvar darwin-p (eq system-type 'darwin))
+(defvar ns-p (featurep 'ns))
+(defvar mac-p (and (eq window-system 'ns) (or emacs23-p emacs24-p)))
+(defvar linux-p (eq system-type 'gnu/linux))
+(defvar colinux-p (when linux-p
+            (let ((file "/proc/modules"))
+              (and
+               (file-readable-p file)
+               (x->bool
+            (with-temp-buffer
+              (insert-file-contents file)
+              (goto-char (point-min))
+              (re-search-forward "^cofuse\.+" nil t)))))))
+(defvar cygwin-p (eq system-type 'cygwin))
+(defvar nt-p (eq system-type 'windows-nt))
+(defvar meadow-p (featurep 'meadow))
+(defvar windows-p (or cygwin-p nt-p meadow-p))
 
-;; OS,システム毎の設定
-;(if (eq system-type 'linux)
-    (require 'mozc)
+(cond
+ (linux-p
+  (require 'mozc)
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
   (global-set-key (kbd "M-`") 'toggle-input-method)
   (set-frame-font "Monaco-10") ;; フォント linux ;
-;  )
+  (prefer-coding-system 'utf-8-unix)
+  (set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
+  (set-default-coding-systems 'utf-8-unix)
+  (set-selection-coding-system 'utf-8-unix)
+  (set-buffer-file-coding-system 'utf-8-unix))
+ (windows-p
+  (setq file-name-coding-system 'sjis)
+  (setq locale-coding-system 'sjis))
+ (t
+  (setq file-name-coding-system 'utf-8)
+  (setq locale-coding-system 'utf-8))
+ )
 
 (if window-system
     (progn
@@ -231,7 +245,6 @@
       (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
       (setq x-select-enable-clipboard t); クリップボードとキルリングを同期させる
       (require 'color-theme)
-;      (require 'color-theme-tango)
       (require 'color-theme-tangotango)
       (require 'color-theme-wombat)
       (require 'color-theme-sanityinc-tomorrow)
@@ -240,4 +253,3 @@
       (toggle-scroll-bar nil)
       (server-start) ;;;多重起動の防止
       ))
-
