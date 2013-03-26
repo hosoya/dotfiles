@@ -216,6 +216,7 @@
   )
 
 (when (eq system-type 'windows-nt)
+  (set-frame-font "ＭＳ ゴシック-9")
   (setq file-name-coding-system 'sjis)
   (setq locale-coding-system 'sjis)
   )
