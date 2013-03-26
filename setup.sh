@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOT_FILES=( .zshrc .emacs.d .gitconfig .gitignore .vimrc .tmux.conf .bashrc \
-            .conkyrc .fonts )
+            .conkyrc .fonts .gitk)
 
 for file in ${DOT_FILES[@]}
 do
