@@ -194,6 +194,13 @@
 (require 'recentf-ext)
 ;(global-set-key (kbd "C-@") 'recentf-open-files)
 
+;; file名の補完で大文字小文字を区別しない
+(setq completion-ignore-case t)
+
+;; バッファ自動再読み込み
+(global-auto-revert-mode 1)
+
+(require 'moccur-edit)
 ;================================================================
 ;; Emacs の種類バージョンを判別するための変数を定義
 ;; @see http://github.com/elim/dotemacs/blob/master/init.el
@@ -234,5 +241,9 @@
       (set-frame-parameter (selected-frame) 'alpha '(0.90)) ;; フレームの透明度
       (tool-bar-mode -1) ;;; メニューバー、スクロールバーを消す
       (toggle-scroll-bar nil)
-      (server-start) ;;;多重起動の防止
       ))
+
+;; 多重起動の防止
+(require 'server)
+(unless (server-running-p)
+  (server-start))
