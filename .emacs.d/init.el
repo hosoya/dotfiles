@@ -118,6 +118,22 @@
 ;; スタートアップ非表示
 (setq inhibit-startup-screen t)
 
+;; カーソル行をハイライトする
+(defface hlline-face
+  '((((class color)
+      (background dark))
+     (:background "dark slate gray"))
+    (((class color)
+      (background light))
+     (:background "ForestGreen"))
+    (t
+     ()))
+  "*Face used by hl-line.")
+(setq hl-line-face 'hlline-face)
+;;(setq hl-line-face 'underline) ; 下線
+
+(global-hl-line-mode)
+
 ;; diffの表示方法を変更
 ;===================================================
 (require 'diff-mode)
