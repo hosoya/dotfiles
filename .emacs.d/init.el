@@ -75,22 +75,17 @@
 ;; 既存スニペットを閲覧・編集する
 (define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
 
-
 ;================================================================
 ;; indent
 ;================================================================
+;TABの追加 ==> C-q TAB
 (add-hook 'c-mode-hook
-	  '(lambda()
-	     (c-set-style "bsd")
-	     (setq c-basic-offset 8)
-	     (setq tab-width c-basic-offset)
-	     (setq indent-tabs-mode t)))
+	  (lambda ()
+	    (c-set-style "linux")
+	    (setq indent-tabs-mode t)))
 
-(setq ruby-deep-indent-paren-style nil)
-
-;;タブ幅を 8 に設定
+;;タブ幅を 8
 (setq-default tab-width 8)
-
 ;================================================================
 ;; 表示
 ;================================================================
