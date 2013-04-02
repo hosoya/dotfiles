@@ -206,7 +206,7 @@
 (setq recentf-max-saved-items 5000)
 (setq recentf-exclude '("/TAGS$" "/var/tmp/"))
 (require 'recentf-ext)
-;(global-set-key (kbd "C-@") 'recentf-open-files)
+(global-set-key (kbd "C-@") 'recentf-open-files)
 
 ;; file名の補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
