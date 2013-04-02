@@ -129,6 +129,9 @@
 
 (global-hl-line-mode)
 
+;; 折り返さない
+(setq-default truncate-lines t)
+
 ;; diffの表示方法を変更
 ;===================================================
 (require 'diff-mode)
