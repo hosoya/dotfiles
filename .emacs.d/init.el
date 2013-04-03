@@ -254,10 +254,11 @@
       (toggle-scroll-bar nil)
       (require 'color-theme)
       (color-theme-initialize)
-      (color-theme-dark-laptop)
+      ;; (color-theme-dark-laptop)
       ;; (require 'color-theme-tangotango)
-      ;; (require 'color-theme-wombat)
-      ;; (require 'color-theme-sanityinc-tomorrow)
+      (require 'color-theme-wombat)
+      (require 'color-theme-sanityinc-tomorrow)
+      (color-theme-wombat)
       ))
 
 ;; 多重起動の防止
