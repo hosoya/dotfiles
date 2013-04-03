@@ -215,7 +215,7 @@
 (global-auto-revert-mode 1)
 
 (require 'moccur-edit)
-;================================================================
+
 ;; Emacs の種類バージョンを判別するための変数を定義
 ;; @see http://github.com/elim/dotemacs/blob/master/init.el
 ;(defun x->bool (elt) (not (not elt))
@@ -248,14 +248,15 @@
       (cua-mode t) ;; cua-mode 矩形選択 C-RETで起動 M-x cua-modeでenabledにする
       (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
       (setq x-select-enable-clipboard t); クリップボードとキルリングを同期させる
-      (require 'color-theme)
-      (require 'color-theme-tangotango)
-      (require 'color-theme-wombat)
-      (require 'color-theme-sanityinc-tomorrow)
       (set-frame-parameter (selected-frame) 'alpha '(0.90)) ;; フレームの透明度
       (tool-bar-mode -1) ;;; メニューバー、スクロールバーを消す
       (toggle-scroll-bar nil)
-      ))
+      (require 'color-theme)
+      (color-theme-initialize)
+      (require 'color-theme)
+      (require 'color-theme-tangotango)
+      (require 'color-theme-wombat)
+      (require 'color-theme-sanityinc-tomorrow)))
 
 ;; 多重起動の防止
 (require 'server)
