@@ -115,6 +115,9 @@ SAVEHIST=50000
 #### bindkey
 bindkey -e
 
+#### ignore C-s, C-q
+stty stop undef
+stty start undef
 
 #### shortcut ####
 alias ls='ls -F -v --color'
