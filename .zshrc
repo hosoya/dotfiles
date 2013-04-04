@@ -27,7 +27,7 @@ zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
-zstyle ':completion:*' group-name '' 
+zstyle ':completion:*' group-name ''
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
@@ -143,6 +143,15 @@ alias -s pl=perl
 
 #### general export
 # export LANG=ja_JP.UTF-8
-export EDITOR=emacsclient 
+export EDITOR=emacsclient
 export PAGER='less -r'
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
+
+#### tmux自動起動
+if [ -z $TMUX ]; then
+  if $(tmux has-session); then
+    tmux attach
+  else
+    tmux
+  fi
+fi
