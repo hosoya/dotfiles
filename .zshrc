@@ -129,6 +129,7 @@ alias po="popd"
 alias x="exit"
 alias diff="diff -u" #unified context
 alias ack=ack-grep
+alias tree="tree --charset=C"
 
 alias -s {png,jpg,bmp,PNG,JPG,BMP}=google-chrome
 alias -s {html,htm,pdf}=google-chrome
