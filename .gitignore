@@ -16,14 +16,18 @@ Session.vim
 *.aux
 *.elc
 
-.vim/bundle/
-.vim/.netrwhist
+.vim/bundle
+.netrwhist
 .vimrc_sample
 
 .emacs.d/history
+.emacs.d/tutorial
+.emacs.d/elpa/archives
+#auto-complete-autoloads.el
 
 # cscope files
 cscope.*
 ncscope.
 
 *.orig
+wget-log*
