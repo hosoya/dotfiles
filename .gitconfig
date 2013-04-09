@@ -12,6 +12,8 @@
   lg  = log --oneline --graph --decorate
   lga = log --oneline --graph --decorate --all
 
-#[mergetool "ediff"]
-#    cmd = emacsclient --eval \"(git-mergetool-emacsclient-ediff \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" \\\"$MERGED\\\")\"
-#    trustExitCode = true
+[merge]
+tool = ediff
+
+[mergetool "ediff"]
+cmd = emacsclient --eval \"(ediff-merge-files-with-ancestor \\\"$PWD/$LOCAL\\\" \\\"$PWD/$REMOTE\\\" \\\"$PWD/$BASE\\\" nil \\\"$PWD/$MERGED\\\")\"
