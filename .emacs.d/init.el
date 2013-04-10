@@ -117,16 +117,16 @@
 (defface hlline-face
   '((((class color)
       (background dark))
-     (:background "dark slate gray"))
+     (:background "gray25"))
     (((class color)
       (background light))
-     (:background "ForestGreen"))
+     (:background "blue"))
     (t
      ()))
   "*Face used by hl-line.")
 (setq hl-line-face 'hlline-face)
-;;(setq hl-line-face 'underline) ; 下線
-
+;;(setq hl-line-face 'underline)
+(set-face-background 'region "medium blue")
 (global-hl-line-mode)
 
 ;; 折り返さない
