@@ -130,6 +130,7 @@ alias x="exit"
 alias diff="diff -u" #unified context
 alias ack=ack-grep
 alias tree="tree --charset=C"
+alias e="emacsclient -n"
 
 alias -s {png,jpg,bmp,PNG,JPG,BMP}=google-chrome
 alias -s {html,htm,pdf}=google-chrome
@@ -158,10 +159,22 @@ alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 #### function
 #function chpwd() { ls }
 
+# export MANPAGER='less -R'
+# export LESS="-RSM~gIsw"
+# color man page with less
+# export LESS_TERMCAP_mb=$'\E[01;31m'
+# export LESS_TERMCAP_md=$'\E[01;31m'
+# export LESS_TERMCAP_me=$'\E[0m'
+# export LESS_TERMCAP_se=$'\E[0m'
+# export LESS_TERMCAP_so=$'\E[01;44;33m'
+# export LESS_TERMCAP_ue=$'\E[0m'
+# export LESS_TERMCAP_us=$'\E[01;32m'
+
 #### general export
 # export LANG=ja_JP.UTF-8
 export EDITOR=emacsclient
 export PAGER='less -r'
+export LESS='-R'
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
 #### tmux自動起動
