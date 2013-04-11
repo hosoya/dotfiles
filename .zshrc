@@ -174,7 +174,7 @@ alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 # export LANG=ja_JP.UTF-8
 export EDITOR=emacsclient
 export PAGER='less -r'
-export LESS='-R'
+#export LESS='-R'
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
 #### tmux自動起動
