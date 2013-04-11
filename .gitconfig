@@ -1,6 +1,6 @@
 [user]
-	name = Yoshifumi Hosoya
-	email = yoshifumi.hosoya.wj@renesas.com
+  name = Yoshifumi Hosoya
+  email = yoshifumi.hosoya.wj@renesas.com
 
 [color]
   ui = auto
@@ -8,12 +8,11 @@
 [alias]
   st = status
   co = checkout
-
   lg  = log --oneline --graph --decorate
   lga = log --oneline --graph --decorate --all
 
 [merge]
-tool = ediff
+  tool = ediff
 
 [mergetool "ediff"]
-cmd = emacsclient --eval \"(ediff-merge-files-with-ancestor \\\"$PWD/$LOCAL\\\" \\\"$PWD/$REMOTE\\\" \\\"$PWD/$BASE\\\" nil \\\"$PWD/$MERGED\\\")\"
+  cmd = emacsclient --eval \"(ediff-merge-files-with-ancestor \\\"$PWD/$LOCAL\\\" \\\"$PWD/$REMOTE\\\" \\\"$PWD/$BASE\\\" nil \\\"$PWD/$MERGED\\\")\"
