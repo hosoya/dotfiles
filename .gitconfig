@@ -16,3 +16,5 @@
 
 [mergetool "ediff"]
   cmd = emacsclient --eval \"(ediff-merge-files-with-ancestor \\\"$PWD/$LOCAL\\\" \\\"$PWD/$REMOTE\\\" \\\"$PWD/$BASE\\\" nil \\\"$PWD/$MERGED\\\")\"
+[core]
+	pager = less -x8
