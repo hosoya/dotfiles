@@ -10,7 +10,6 @@
 (define-key global-map "\C-h" 'delete-backward-char) ; 削除
 (define-key global-map "\M-?" 'help-for-help)	     ; ヘルプ
 ;; (define-key global-map "\C-z" 'undo)		     ; undo
-(global-set-key (kbd "C-z") popwin:keymap)           ; popwin
 
 ;================================================================
 ;; anytihng
@@ -246,6 +245,7 @@
 ;;(push '("*compilation*" :height 0.4 :noselect t :stick t) popwin:special-display-config)
 (push '(" *auto-async-byte-compile*" :position bottom :noselect t) popwin:special-display-config)
 ;;(push '(" *grep*" :position bottom :noselect t) popwin:special-display-config)
+(global-set-key (kbd "C-z") popwin:keymap)           ; popwin
 
 ;================================================================
 ;; Emacs の種類バージョンを判別するための変数を定義
