@@ -231,6 +231,12 @@
 
 ;; バッファ自動再読み込み
 (global-auto-revert-mode 1)
+(setq auto-revert-interval 1)
+
+;; シンボリックリンクの読み込みを許可
+(setq vc-follow-symlinks t)
+;; シンボリックリンク先のVCS内で更新が入った場合にバッファを自動更新
+(setq auto-revert-check-vc-info t)
 
 (require 'moccur-edit)
 
