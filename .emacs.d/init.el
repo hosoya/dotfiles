@@ -205,8 +205,8 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;auto-complete
-(require 'auto-complete)
-(global-auto-complete-mode t)
+;(require 'auto-complete)
+;(global-auto-complete-mode t)
 
 ;; 履歴を次回Emacs起動時にも保存する
 (savehist-mode 1)
