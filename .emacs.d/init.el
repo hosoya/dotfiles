@@ -105,7 +105,7 @@
 
 ;; 行末の空白を強調表示
 (setq-default show-trailing-whitespace t)
-(set-face-background 'trailing-whitespace "#b14770")
+(set-face-background 'trailing-whitespace "#4a4a4a")
 
 ;; 現在の関数名を表示
 (which-function-mode 1)
