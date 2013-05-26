@@ -210,3 +210,8 @@ fi
 #     zle -N zle-line-init
 #     zstyle ':completion:*' completer _oldlist _complete
 # fi
+
+#export FPATH="$FPATH:/opt/local/share/zsh/site-functions/"
+if [ -f /usr/share/autojump/autojump.zsh ]; then
+    . /usr/share/autojump/autojump.zsh
+fi
