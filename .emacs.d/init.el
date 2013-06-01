@@ -262,7 +262,7 @@
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
   (global-set-key (kbd "M-`") 'toggle-input-method)
-  (set-frame-font "Monaco-10") ;; フォント linux ;
+  (set-frame-font "Ricty-10") ;; フォント linux ;
   (prefer-coding-system 'utf-8-unix)
   (set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
   (set-default-coding-systems 'utf-8-unix)
