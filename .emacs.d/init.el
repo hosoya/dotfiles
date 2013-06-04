@@ -282,7 +282,7 @@
       (cua-mode t) ;; cua-mode 矩形選択 C-RETで起動 M-x cua-modeでenabledにする
       (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
       (setq x-select-enable-clipboard t); クリップボードとキルリングを同期させる
-      (set-frame-parameter (selected-frame) 'alpha '(0.90)) ;; フレームの透明度
+      ;; (set-frame-parameter (selected-frame) 'alpha '(0.90)) ;; フレームの透明度
       (tool-bar-mode -1) ;;; メニューバー、スクロールバーを消す
       (toggle-scroll-bar nil)
       (require 'color-theme)
