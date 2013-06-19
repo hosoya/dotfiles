@@ -10,9 +10,6 @@
 .vimrc
 .tmux.conf
 .bashrc
-.conkyrc
-.fonts
-.gitk
 ````
 ## Usage
 
