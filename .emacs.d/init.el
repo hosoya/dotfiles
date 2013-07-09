@@ -249,6 +249,11 @@
 ;; (push '(" *auto-async-byte-compile*" :position bottom :noselect t) popwin:special-display-config)
 ;; (global-set-key (kbd "C-z") popwin:keymap)           ; popwin
 
+;; 　拡張子とメジャーモードの関連付け
+(add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
+(add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.inc$" . makefile-mode))
+
 ;================================================================
 ;; Emacs の種類バージョンを判別するための変数を定義
 ;================================================================
