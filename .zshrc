@@ -131,6 +131,9 @@ alias diff="diff -u" #unified context
 alias ack=ack-grep
 alias tree="tree --charset=C"
 alias e="emacsclient -n"
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
 
 alias -s {png,jpg,bmp,PNG,JPG,BMP}=google-chrome
 alias -s {html,htm,pdf}=google-chrome
