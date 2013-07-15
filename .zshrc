@@ -127,7 +127,11 @@ alias l.='ls -d .*'
 alias pd="pushd"
 alias po="popd"
 alias x="exit"
-alias diff="diff -u" #unified context
+if [ -x /usr/bin/colordiff -o -x /usr/local/bin/colordiff ]; then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi
 alias ack=ack-grep
 alias tree="tree --charset=C"
 alias e="emacsclient -n"
@@ -190,7 +194,7 @@ function google() {
 # export LANG=ja_JP.UTF-8
 export EDITOR=emacsclient
 export PAGER='less -r'
-#export LESS='-R'
+export LESS='-R'
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
 #### tmux自動起動
