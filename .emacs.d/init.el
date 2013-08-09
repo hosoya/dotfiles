@@ -259,8 +259,7 @@
 ;; 翻訳
 ;================================================================
 (require 'google-translate)
-(global-set-key "\C-ct" 'google-translate-at-point)
-(global-set-key "\C-cT" 'google-translate-query-translate)
+(global-set-key [(C x) (C t)] 'google-translate-at-point)
 
 ;; 翻訳のデフォルト値を設定（en -> ja）
 (custom-set-variables
