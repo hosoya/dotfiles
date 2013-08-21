@@ -254,6 +254,31 @@
 (add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
 (add-to-list 'auto-mode-alist '("\\.inc$" . makefile-mode))
 
+;; マークダウン
+
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+;; (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (deeper-blue)))
+ '(default-frame-alist (quote ((height . 70) (width . 120))))
+ '(markdown-command "/usr/bin/multimarkdown")
+ '(markdown-open-command "/opt/google/chrome/chrome"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ;================================================================
 ;; 翻訳
