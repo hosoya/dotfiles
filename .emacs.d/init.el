@@ -133,15 +133,6 @@
 ;; 折り返さない
 (setq-default truncate-lines t)
 
-;;起動時のフレームサイズを設定する
-(setq initial-frame-alist
-      (append (list
-	       '(width . 180)
-	       '(height . 54)
-	       )
-	      initial-frame-alist))
-(setq default-frame-alist initial-frame-alist)
-
 ;; diffの表示方法を変更
 ;; (defun diff-mode-setup-faces ()
 ;;   ;; 追加された行は緑で表示
@@ -321,13 +312,27 @@
   (set-default-coding-systems 'utf-8-unix)
   (set-selection-coding-system 'utf-8-unix)
   (set-buffer-file-coding-system 'utf-8-unix)
+  ;;起動時のフレームサイズを設定する
+  (setq initial-frame-alist
+	(append (list
+		 '(width . 160)
+		 '(height . 54)
+		 )
+		initial-frame-alist))
   )
 
 (when (eq system-type 'windows-nt)
-  (set-frame-font "ＭＳ ゴシック-9")
+  (set-frame-font "ＭＳ ゴシック-12")
   (setq file-name-coding-system 'sjis)
   (setq locale-coding-system 'sjis)
-  )
+  ;;起動時のフレームサイズを設定する
+  (setq initial-frame-alist
+	(append (list
+		 '(width . 140)
+		 '(height . 40)
+		 )
+		initial-frame-alist))
+  (setq default-frame-alist initial-frame-alist))
 
 (if window-system
     (progn
