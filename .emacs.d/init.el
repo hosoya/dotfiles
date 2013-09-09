@@ -212,12 +212,6 @@
 (require 'wdired)
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 
-;; 最近使ったファイル一覧を表示
-(setq recentf-max-saved-items 5000)
-(setq recentf-exclude '("/TAGS$" "/var/tmp/"))
-(require 'recentf-ext)
-(global-set-key (kbd "C-@") 'recentf-open-files)
-
 ;; file名の補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
 
@@ -350,6 +344,11 @@
       (require 'color-theme-wombat)
       (require 'color-theme-sanityinc-tomorrow)
       (color-theme-wombat)
+      ;; 最近使ったファイル一覧を表示
+      (setq recentf-max-saved-items 5000)
+      (setq recentf-exclude '("/TAGS$" "/var/tmp/"))
+      (require 'recentf-ext)
+      (global-set-key (kbd "C-@") 'recentf-open-files)
       ))
 
 ;; 多重起動の防止
