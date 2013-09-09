@@ -90,9 +90,9 @@
 ;================================================================
 ;; 表示
 ;================================================================
-(display-time)
+;; (display-time)
 ;;; 行番号・桁番号を表示させる
-(line-number-mode 1)
+;(line-number-mode 1)
 (column-number-mode 1)
 ;;; 行番号を左に表示
 ;; (require 'linum)
@@ -109,7 +109,7 @@
 (set-face-background 'trailing-whitespace "#4a4a4a")
 
 ;; 現在の関数名を表示
-(which-function-mode 1)
+;; (which-function-mode 1)
 
 ;; スタートアップ非表示
 (setq inhibit-startup-screen t)
@@ -169,12 +169,13 @@
 		    :background "white" :weight 'extra-bold
 		    :underline t :inherit nil)
 
-;================================================================
-;; misc
-;================================================================
 ;; タイトルバーにファイルのフルパス表示
 (setq frame-title-format
       (format "%%f - Emacs@%s" (system-name)))
+
+;================================================================
+;; misc
+;================================================================
 
 ;CSCOPE
 (require 'xcscope)
@@ -300,7 +301,7 @@
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
   (global-set-key (kbd "M-`") 'toggle-input-method)
-  (set-frame-font "Ricty-10") ;; フォント linux ;
+  (set-frame-font "Monaco-8") ;; フォント linux ;
   (prefer-coding-system 'utf-8-unix)
   (set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
   (set-default-coding-systems 'utf-8-unix)
@@ -335,7 +336,8 @@
       (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
       (setq x-select-enable-clipboard t); クリップボードとキルリングを同期させる
       ;; (set-frame-parameter (selected-frame) 'alpha '(0.90)) ;; フレームの透明度
-      (tool-bar-mode -1) ;;; メニューバー、スクロールバーを消す
+      (tool-bar-mode 0) ;;; メニューバー、スクロールバーを消す
+      (menu-bar-mode 0) ;;; メニューバー、スクロールバーを消す
       (toggle-scroll-bar nil)
       (require 'color-theme)
       (color-theme-initialize)
