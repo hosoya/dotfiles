@@ -92,8 +92,8 @@
 ;================================================================
 (display-time)
 ;;; 行番号・桁番号を表示させる
-;; (line-number-mode 1)
-;; (column-number-mode 1)
+(line-number-mode 1)
+(column-number-mode 1)
 ;;; 行番号を左に表示
 ;; (require 'linum)
 ;; (global-linum-mode t)      ; デフォルトで linum-mode を有効にする
