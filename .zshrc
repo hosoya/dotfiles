@@ -29,22 +29,35 @@ zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name ''
 
+# autoload -Uz vcs_info
+# #zstyle ':vcs_info:*' enable git
+# zstyle ':vcs_info:*git' check-for-changes true
+# zstyle ':vcs_info:*git' unstagedstr "*"
+# zstyle ':vcs_info:*git' stagedstr "+"
+# #zstyle ':vcs_info:*' formats "%c%u%r@%b"
+# #zstyle ':vcs_info:*' formats "%c%u%b"
+# zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+# zstyle ':vcs_info:*' actionformats "%c%u%r@%b|%a"
+# この行は現在のパスを表示する設定です。ブランチを表示して色をつける設定とは関係ありません
+RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
+
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr "*"
-zstyle ':vcs_info:*' stagedstr "+"
-zstyle ':vcs_info:*' formats "%c%u%r@%b"
-zstyle ':vcs_info:*' formats "%c%u%b"
-zstyle ':vcs_info:*' actionformats "%c%u%r@%b|%a"
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 #### option, limit
 setopt autocd
-setopt automenu
+#setopt automenu
 setopt autolist
 setopt correct
 setopt nobeep
-setopt nonomatch
+#setopt nonomatch
 setopt hist_save_no_dups
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
@@ -60,51 +73,51 @@ setopt pushd_ignore_dups
 setopt transient_rprompt  #コマンドの実行直後に右プロンプトが消える
 
 #### Terminal title
-function _update_terminal_title () {
-  #echo "_update_terminal_title"
-}
-add-zsh-hook precmd _update_terminal_title
+# function _update_terminal_title () {
+#   #echo "_update_terminal_title"
+# }
+# add-zsh-hook precmd _update_terminal_title
 
 #### prompt
-function _update_vcs_info_msg () {
+# function _update_vcs_info_msg () {
 
-  psvar=()
-  LANG=en_US.UTF-8 vcs_info
-  if [ -n "${vcs_info_msg_0_}" ]
-  then
-    local stashcnt changes changes_chars
-    stashcnt=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
-    changes=$(echo ${vcs_info_msg_0_} | sed 's/^\([+\*]\).\+$/\1/')
+#   psvar=()
+#   LANG=en_US.UTF-8 vcs_info
+#   if [ -n "${vcs_info_msg_0_}" ]
+#   then
+#     local stashcnt changes changes_chars
+#     stashcnt=$(git stash list 2>/dev/null | wc -l | tr -d ' ')
+#     changes=$(echo ${vcs_info_msg_0_} | sed 's/^\([+\*]\).\+$/\1/')
 
-    case "v${changes}" in
-      'v*')
-        psvar[2]="2"
-        changes_char=""
-        ;;
-      'v+')
-        psvar[3]="3"
-        changes_char=""
-        ;;
-      *)
-        changes_char=" "
-        ;;
-    esac
+#     case "v${changes}" in
+#       'v*')
+#         psvar[2]="2"
+#         changes_char=""
+#         ;;
+#       'v+')
+#         psvar[3]="3"
+#         changes_char=""
+#         ;;
+#       *)
+#         changes_char=" "
+#         ;;
+#     esac
 
-    changes_char=" "
+#     changes_char=" "
 
-    if [ ${stashcnt} -gt 0 ]
-    then
-      psvar[1]="${changes_char}${vcs_info_msg_0_}+${stashcnt}"
-    else
-      psvar[1]="${changes_char}${vcs_info_msg_0_}"
-    fi
-  fi
-}
+#     if [ ${stashcnt} -gt 0 ]
+#     then
+#       psvar[1]="${changes_char}${vcs_info_msg_0_}+${stashcnt}"
+#     else
+#       psvar[1]="${changes_char}${vcs_info_msg_0_}"
+#     fi
+#   fi
+# }
 
-add-zsh-hook precmd _update_vcs_info_msg
+# add-zsh-hook precmd _update_vcs_info_msg
 
 PROMPT=%F{cyan}"${DIST}"%B%F{magenta}'[%n@%M]%f%b %# '%f
-RPROMPT=" %F{yellow}%~ %1(v|%F{green}%2(v|%B%F{red}|)%3(v|%B%F{yellow}|)%1v|)%b%f"
+#RPROMPT=" %F{yellow}%~ %1(v|%F{green}%2(v|%B%F{red}|)%3(v|%B%F{yellow}|)%1v|)%b%f"
 
 
 #### history
