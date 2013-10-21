@@ -287,6 +287,13 @@
 ;; google-translate.elの翻訳バッファをポップアップで表示させる
 (push '("*Google Translate*") popwin:special-display-config)
 
+;; スペルチェック
+(setq-default ispell-program-name "aspell")
+(setq ispell-grep-command "grep")
+(eval-after-load "ispell"
+ '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
+(setq flyspell-issue-welcome-flag nil)
+
 ;================================================================
 ;; Emacs の種類バージョンを判別するための変数を定義
 ;================================================================
