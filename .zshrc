@@ -192,7 +192,8 @@ function google() {
     w3m http://www.google.co.jp/$opt
 }
 
-# export MANPAGER='less -R'
+export LESS="-iMR"
+export MANPAGER="less -iMR"
 # export LESS="-RSM~gIsw"
 # color man page with less
 # export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -206,7 +207,7 @@ function google() {
 #### general export
 # export LANG=ja_JP.UTF-8
 export EDITOR=emacsclient
-export PAGER='less -r'
+export PAGER="less -iMR"
 #export LESS='-R'
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
