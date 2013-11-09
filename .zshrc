@@ -12,8 +12,7 @@ if [ -f ${HOME}/.zshenv ]; then
   source ${HOME}/.zshenv
 fi
 
-#source ~/.zsh.d/git-completion.bash
-#source ~/.zsh.d/git-completion.zsh
+fpath=(~/.zsh/completion $fpath)
 
 #### autoload
 autoload -Uz add-zsh-hook
@@ -39,15 +38,15 @@ zstyle ':completion:*' group-name ''
 # zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 # zstyle ':vcs_info:*' actionformats "%c%u%r@%b|%a"
 # この行は現在のパスを表示する設定です。ブランチを表示して色をつける設定とは関係ありません
-RPROMPT="%{${fg[magenta]}%}[%~]%{${reset_color}%}"
+RPROMPT="%{${fg[white]}%}%~ %{${reset_color}%}"
 
 autoload -Uz vcs_info
-setopt prompt_subst
+#setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
 zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
 zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
+zstyle ':vcs_info:*' actionformats '%b|%a'
 precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
