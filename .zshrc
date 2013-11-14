@@ -38,7 +38,7 @@ zstyle ':completion:*' group-name ''
 # zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 # zstyle ':vcs_info:*' actionformats "%c%u%r@%b|%a"
 # この行は現在のパスを表示する設定です。ブランチを表示して色をつける設定とは関係ありません
-RPROMPT="%{${fg[white]}%}%~ %{${reset_color}%}"
+RPROMPT="%{${fg[cyan]}%}%~ %{${reset_color}%}"
 
 autoload -Uz vcs_info
 #setopt prompt_subst
