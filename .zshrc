@@ -12,6 +12,7 @@ if [ -f ${HOME}/.zshenv ]; then
   source ${HOME}/.zshenv
 fi
 
+export PATH=~/.zsh/diff-highlight:$PATH
 fpath=(~/.zsh/completion $fpath)
 
 #### autoload
