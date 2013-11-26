@@ -324,7 +324,7 @@
   )
 
 (when (eq system-type 'windows-nt)
-  (set-frame-font "ＭＳ ゴシック-12")
+  (set-frame-font "ＭＳ ゴシック-11")
   (setq file-name-coding-system 'sjis)
   (setq locale-coding-system 'sjis)
   ;;起動時のフレームサイズを設定する
