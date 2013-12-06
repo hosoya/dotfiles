@@ -307,7 +307,8 @@
   (require 'mozc)
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
-  (global-set-key (kbd "M-`") 'toggle-input-method)
+  ;;(global-set-key (kbd "M-`") 'toggle-input-method)
+  (global-set-key [?\S-\ ] 'toggle-input-method) ;; shift + space
   (set-frame-font "Monaco-8") ;; フォント linux ;
   (prefer-coding-system 'utf-8-unix)
   (set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
