@@ -177,6 +177,7 @@
 ;; misc
 ;================================================================
 (require 'ag)
+(setq ag-reuse-buffers 't)
 
 ;CSCOPE
 (require 'xcscope)
