@@ -279,14 +279,14 @@
   '(google-translate-default-target-language "ja"))
 
 ;; popwin.el
-(require 'popwin)
+;;;;(require 'popwin)
 ;; おまじない（よく分かってない、、）
-(setq display-buffer-function 'popwin:display-buffer)
+;;;;(setq display-buffer-function 'popwin:display-buffer)
 ;; ポップアップを画面下に表示
-(setq popwin:popup-window-position 'bottom)
+;;;;(setq popwin:popup-window-position 'bottom)
 
 ;; google-translate.elの翻訳バッファをポップアップで表示させる
-(push '("*Google Translate*") popwin:special-display-config)
+;;;;(push '("*Google Translate*") popwin:special-display-config)
 
 ;; スペルチェック
 (setq-default ispell-program-name "aspell")
