@@ -109,7 +109,7 @@
 (set-face-background 'trailing-whitespace "#4a4a4a")
 
 ;; 現在の関数名を表示
-;; (which-function-mode 1)
+(which-function-mode 1)
 
 ;; スタートアップ非表示
 (setq inhibit-startup-screen t)
