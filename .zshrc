@@ -152,8 +152,8 @@ alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 
-alias -s {png,jpg,bmp,PNG,JPG,BMP}=google-chrome
-alias -s {html,htm,pdf}=google-chrome
+alias -s {png,jpg,bmp,PNG,JPG,BMP}=chromium-browser
+alias -s {html,htm}=chromium-browser
 
 alias -s py=python
 alias -s rb=ruby
