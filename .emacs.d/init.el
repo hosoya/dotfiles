@@ -3,6 +3,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-to-list 'load-path "~/.emacs.d/auto-install/")
 (add-to-list 'load-path "~/.emacs.d/elpa")
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 
 ;================================================================
 ;; キーバインド
@@ -176,6 +177,13 @@
 ;================================================================
 ;; misc
 ;================================================================
+;;(require 'magit)
+(require 'multi-term)
+(setq multi-term-program "/usr/bin/zsh")
+(setq ansi-term-color-vector
+      [unspecified "black" "red1" "lime green" "yellow2"
+                   "DeepSkyBlue3" "magenta2" "cyan2" "white"])
+
 (require 'ag)
 (setq ag-reuse-buffers 't)
 
@@ -309,6 +317,7 @@
 (require 'rotate)
 (global-set-key (kbd "C-t") 'rotate-layout)
 (global-set-key (kbd "M-t") 'rotate-window)
+
 
 ;================================================================
 ;; Emacs の種類バージョンを判別するための変数を定義
