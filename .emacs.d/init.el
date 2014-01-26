@@ -178,11 +178,6 @@
 ;; misc
 ;================================================================
 ;;(require 'magit)
-(require 'multi-term)
-(setq multi-term-program "/usr/bin/zsh")
-(setq ansi-term-color-vector
-      [unspecified "black" "red1" "lime green" "yellow2"
-                   "DeepSkyBlue3" "magenta2" "cyan2" "white"])
 
 (require 'ag)
 (setq ag-reuse-buffers 't)
@@ -385,6 +380,17 @@
       (require 'recentf-ext)
       (global-set-key (kbd "C-@") 'recentf-open-files)
       ))
+
+
+(require 'multi-term)
+(setq multi-term-program "/usr/bin/zsh")
+(when window-system
+  (setq
+   term-default-fg-color "White"
+   term-default-bg-color "brightblack"
+   ansi-term-color-vector
+        [unspecified "black" "#ff5555" "#55ff55" "#ffff55" "#5555ff"
+         "#ff55ff" "#55ffff" "white"]))
 
 ;; 多重起動の防止
 (require 'server)
