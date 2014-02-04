@@ -240,6 +240,48 @@
 ;; (push '(" *auto-async-byte-compile*" :position bottom :noselect t) popwin:special-display-config)
 ;; (global-set-key (kbd "C-z") popwin:keymap)           ; popwin
 
+(require 'popwin)
+(popwin-mode 1)
+
+(setq display-buffer-function 'popwin:display-buffer)
+(setq popwin:popup-window-position 'bottom)
+
+;; M-x anything
+(setq anything-samewindow nil)
+(push '("*anything*" :height 20) popwin:special-display-config)
+
+;; M-x dired-jump-other-window
+(push '(dired-mode :position top) popwin:special-display-config)
+
+;; M-!
+(push '("*Shell Command Output*" :height 40) popwin:special-display-config)
+
+;; cscope
+;;(push "*cscope*" popwin:special-display-config)
+
+;; M-x compile
+;; (push '(compilation-mode :noselect t) popwin:special-display-config)
+
+(global-set-key (kbd "C-z") popwin:keymap)
+;; Keymap:
+;; | Key    | Command                               |
+;; |--------+---------------------------------------|
+;; | b      | popwin:popup-buffer                   |
+;; | l      | popwin:popup-last-buffer              |
+;; | o      | popwin:display-buffer                 |
+;; | C-b    | popwin:switch-to-last-buffer          |
+;; | C-p    | popwin:original-pop-to-last-buffer    |
+;; | C-o    | popwin:original-display-last-buffer   |
+;; | SPC    | popwin:select-popup-window            |
+;; | s      | popwin:stick-popup-window             |
+;; | 0      | popwin:close-popup-window             |
+;; | f, C-f | popwin:find-file                      |
+;; | e      | popwin:messages                       |
+;; | C-u    | popwin:universal-display              |
+;; | 1      | popwin:one-window                     |
+
+
+
 ;; 　拡張子とメジャーモードの関連付け
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 (add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
