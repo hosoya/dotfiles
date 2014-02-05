@@ -251,7 +251,7 @@
 (push '("*anything*" :height 20) popwin:special-display-config)
 
 ;; M-x dired-jump-other-window
-(push '(dired-mode :position top) popwin:special-display-config)
+(push '(dired-mode :position top :height 40) popwin:special-display-config)
 
 ;; M-!
 (push '("*Shell Command Output*" :height 40) popwin:special-display-config)
