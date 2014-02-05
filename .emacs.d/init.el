@@ -411,28 +411,18 @@
       (toggle-scroll-bar nil)
       (require 'color-theme)
       (color-theme-initialize)
-      ;; (color-theme-dark-laptop)
-      ;; (require 'color-theme-tangotango)
+      ;;(color-theme-dark-laptop)
+      (require 'color-theme-tangotango)
       (require 'color-theme-wombat)
       (require 'color-theme-sanityinc-tomorrow)
-      (color-theme-wombat)
+      ;;(color-theme-wombat)
+      (color-theme-sanityinc-tomorrow-night)
       ;; 最近使ったファイル一覧を表示
       (setq recentf-max-saved-items 5000)
       (setq recentf-exclude '("/TAGS$" "/var/tmp/"))
       (require 'recentf-ext)
       (global-set-key (kbd "C-@") 'recentf-open-files)
       ))
-
-
-(require 'multi-term)
-(setq multi-term-program "/usr/bin/zsh")
-(when window-system
-  (setq
-   term-default-fg-color "White"
-   term-default-bg-color "brightblack"
-   ansi-term-color-vector
-        [unspecified "black" "#ff5555" "#55ff55" "#ffff55" "#5555ff"
-         "#ff55ff" "#55ffff" "white"]))
 
 ;; 多重起動の防止
 (require 'server)
