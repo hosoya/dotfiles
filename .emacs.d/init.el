@@ -253,14 +253,20 @@
 ;; M-x dired-jump-other-window
 (push '(dired-mode :position top :height 40) popwin:special-display-config)
 
+
 ;; M-!
 (push '("*Shell Command Output*" :height 40) popwin:special-display-config)
 
 ;; cscope
 ;;(push "*cscope*" popwin:special-display-config)
 
+;;(push '("*grep*" :position top :height 40) popwin:special-display-config)
+;;(push '("*grep*" :noselect t) popwin:special-display-config)
+
 ;; M-x compile
-;; (push '(compilation-mode :noselect t) popwin:special-display-config)
+(push '(compilation-mode :noselect t) popwin:special-display-config)
+
+(push '("*byte-compile*" :noselect t) popwin:special-display-config)
 
 (global-set-key (kbd "C-z") popwin:keymap)
 ;; Keymap:
@@ -387,7 +393,7 @@
   )
 
 (when (eq system-type 'windows-nt)
-  (set-frame-font "ＭＳ ゴシック-11")
+  (set-frame-font "ＭＳ ゴシック-10")
   (setq file-name-coding-system 'sjis)
   (setq locale-coding-system 'sjis)
   ;;起動時のフレームサイズを設定する
