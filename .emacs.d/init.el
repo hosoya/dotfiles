@@ -12,6 +12,7 @@
 (define-key global-map "\M-?" 'help-for-help)	     ; ヘルプ
 ;; (define-key global-map "\C-z" 'undo)		     ; undo
 (windmove-default-keybindings) ; Shiftと矢印キーで分割ウィンドウを移動
+(define-key mode-specific-map "l" 'se/make-summary-buffer) ; summary
 
 ;================================================================
 ;; anytihng
@@ -177,8 +178,8 @@
 ;================================================================
 ;; misc
 ;================================================================
+(autoload 'se/make-summary-buffer "summarye" nil t) ;関数一覧表示
 ;;(require 'magit)
-
 (require 'ag)
 (setq ag-reuse-buffers 't)
 
