@@ -116,21 +116,6 @@
 ;; スタートアップ非表示
 (setq inhibit-startup-screen t)
 
-;; カーソル行をハイライトする
-(defface hlline-face
-  '((((class color)
-      (background dark))
-     (:background "gray25"))
-    (((class color)
-      (background light))
-     (:background "blue"))
-    (t
-     ()))
-  "*Face used by hl-line.")
-(setq hl-line-face 'hlline-face)
-;;(setq hl-line-face 'underline)
-(set-face-background 'region "medium blue")
-(global-hl-line-mode)
 
 ;; 折り返さない
 (setq-default truncate-lines t)
@@ -377,7 +362,8 @@
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
   ;;(global-set-key (kbd "M-`") 'toggle-input-method)
-  (global-set-key [?\S-\ ] 'toggle-input-method) ;; shift + space
+  ;; (global-set-key [?\S-\ ] 'toggle-input-method) ;; shift + space
+  (global-set-key (kbd "C-o") 'toggle-input-method)
   (set-frame-font "Monaco-8") ;; フォント linux ;
   (prefer-coding-system 'utf-8-unix)
   (set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
@@ -424,6 +410,22 @@
       (require 'color-theme-sanityinc-tomorrow)
       ;;(color-theme-wombat)
       (color-theme-sanityinc-tomorrow-night)
+      ;; カーソル行をハイライトする
+      (defface hlline-face
+	'((((class color)
+	    (background dark))
+	   (:background "gray25"))
+	  (((class color)
+	    (background light))
+	   (:background "blue"))
+	  (t
+	   ()))
+	"*Face used by hl-line.")
+      (setq hl-line-face 'hlline-face)
+      ;;(setq hl-line-face 'underline)
+      (set-face-background 'region "medium blue")
+      (global-hl-line-mode)
+
       ;; 最近使ったファイル一覧を表示
       (setq recentf-max-saved-items 5000)
       (setq recentf-exclude '("/TAGS$" "/var/tmp/"))
