@@ -380,14 +380,14 @@
   )
 
 (when (eq system-type 'windows-nt)
-  (set-frame-font "ＭＳ ゴシック-10")
+  (set-frame-font "ＭＳ ゴシック-9")
   (setq file-name-coding-system 'sjis)
   (setq locale-coding-system 'sjis)
   ;;起動時のフレームサイズを設定する
   (setq initial-frame-alist
 	(append (list
-		 '(width . 140)
-		 '(height . 40)
+		 '(width . 100)
+		 '(height . 50)
 		 )
 		initial-frame-alist))
   (setq default-frame-alist initial-frame-alist))
