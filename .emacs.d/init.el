@@ -318,8 +318,8 @@
 ;; 翻訳
 ;================================================================
 (require 'google-translate)
-(global-set-key [(C x) (C t)] 'google-translate-at-point)
-
+(global-set-key "\C-xt" 'google-translate-at-point)         ; en -> ja
+(global-set-key "\C-xT" 'google-translate-at-point-reverse) ; ja -> en
 ;; 翻訳のデフォルト値を設定（en -> ja）
 (custom-set-variables
   '(google-translate-default-source-language "en")
