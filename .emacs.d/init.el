@@ -226,22 +226,22 @@
 ;; (push '(" *auto-async-byte-compile*" :position bottom :noselect t) popwin:special-display-config)
 ;; (global-set-key (kbd "C-z") popwin:keymap)           ; popwin
 
-(require 'popwin)
-(popwin-mode 1)
+;(require 'popwin)
+;(popwin-mode 1)
 
-(setq display-buffer-function 'popwin:display-buffer)
-(setq popwin:popup-window-position 'bottom)
+;(setq display-buffer-function 'popwin:display-buffer)
+;(setq popwin:popup-window-position 'bottom)
 
 ;; M-x anything
-(setq anything-samewindow nil)
-(push '("*anything*" :height 20) popwin:special-display-config)
+;(setq anything-samewindow nil)
+;(push '("*anything*" :height 20) popwin:special-display-config)
 
 ;; M-x dired-jump-other-window
-(push '(dired-mode :position top :height 40) popwin:special-display-config)
+;(push '(dired-mode :position top :height 40) popwin:special-display-config)
 
 
 ;; M-!
-(push '("*Shell Command Output*" :height 40) popwin:special-display-config)
+;(push '("*Shell Command Output*" :height 40) popwin:special-display-config)
 
 ;; cscope
 ;;(push "*cscope*" popwin:special-display-config)
@@ -250,11 +250,11 @@
 ;;(push '("*grep*" :noselect t) popwin:special-display-config)
 
 ;; M-x compile
-(push '(compilation-mode :noselect t) popwin:special-display-config)
+;(push '(compilation-mode :noselect t) popwin:special-display-config)
 
-(push '("*byte-compile*" :noselect t) popwin:special-display-config)
+;(push '("*byte-compile*" :noselect t) popwin:special-display-config)
 
-(global-set-key (kbd "C-z") popwin:keymap)
+;(global-set-key (kbd "C-z") popwin:keymap)
 ;; Keymap:
 ;; | Key    | Command                               |
 ;; |--------+---------------------------------------|
@@ -278,6 +278,9 @@
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 (add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
 (add-to-list 'auto-mode-alist '("\\.inc$" . makefile-mode))
+(add-to-list 'auto-mode-alist '("\\.dtsi$" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.dts$" . c-mode))
+
 
 ;; マークダウン
 
@@ -287,7 +290,7 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
+;; (add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -404,12 +407,11 @@
       (toggle-scroll-bar nil)
       (require 'color-theme)
       (color-theme-initialize)
-      ;;(color-theme-dark-laptop)
-      (require 'color-theme-tangotango)
-      (require 'color-theme-wombat)
-      (require 'color-theme-sanityinc-tomorrow)
+      (color-theme-dark-laptop)
+      ;; (require 'color-theme-tangotango)
+      ;; (require 'color-theme-wombat)
       ;;(color-theme-wombat)
-      (color-theme-sanityinc-tomorrow-night)
+      ;; (color-theme-sanityinc-tomorrow-night)
       ;; カーソル行をハイライトする
       (defface hlline-face
 	'((((class color)
