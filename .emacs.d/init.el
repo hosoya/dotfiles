@@ -53,32 +53,6 @@
 (require 'melpa)
 
 ;================================================================
-;; yasnippet
-;================================================================
-;; yasnippetを置いているフォルダにパスを通す
-;(add-to-list 'load-path
-;             (expand-file-name "~/.emacs.d/elisp/yasnippet"))
-;; (require 'yasnippet)
-;; ;; ~/.emacs.d/にsnippetsというフォルダを作っておきましょう
-;; (setq yas-snippet-dirs
-;;       '("~/.emacs.d/snippets" ;; 作成するスニペットはここに入る
-;;         "~/.emacs.d/elpa/yasnippet-20130218.2229/snippets" ;; 最初から入っていたスニペット(省略可能)
-;;         ))
-;; (yas-global-mode 1)
-
-;; ;; 単語展開キーバインド (ver8.0から明記しないと機能しない)
-;; ;; (setqだとtermなどで干渉問題ありでした)
-;; ;; もちろんTAB以外でもOK 例えば "C-;"とか
-;; (custom-set-variables '(yas-trigger-key "TAB"))
-
-;; ;; 既存スニペットを挿入する
-;; (define-key yas-minor-mode-map (kbd "C-x i i") 'yas-insert-snippet)
-;; ;; 新規スニペットを作成するバッファを用意する
-;; (define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
-;; ;; 既存スニペットを閲覧・編集する
-;; (define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
-
-;================================================================
 ;; indent
 ;================================================================
 ;TABの追加 ==> C-q TAB
@@ -119,25 +93,6 @@
 
 ;; 折り返さない
 (setq-default truncate-lines t)
-
-;; diffの表示方法を変更
-;; (defun diff-mode-setup-faces ()
-;;   ;; 追加された行は緑で表示
-;;   (set-face-attribute 'diff-added nil
-;;                       :foreground "white" :background "dark olive green")
-;;   ;; 削除された行は赤で表示
-;;   (set-face-attribute 'diff-removed nil
-;;                       :foreground "white" :background "PaleVioletRed4")
-;;   ;; 文字単位での変更箇所は色を反転して強調
-;;   (set-face-attribute 'diff-refine-change nil
-;;                       :foreground nil :background nil
-;;                       :weight 'bold :inverse-video t))
-;; (add-hook 'diff-mode-hook 'diff-mode-setup-faces)
-
-;; ;; diffを表示したらすぐに文字単位での強調表示も行う
-;; (defun diff-mode-refine-automatically ()
-;;   (diff-auto-refine-mode t))
-;; (add-hook 'diff-mode-hook 'diff-mode-refine-automatically)
 
 ;; diffの表示方法を変更 その２
 (require 'diff-mode)
@@ -218,61 +173,6 @@
 
 (require 'moccur-edit)
 
-;; popwin
-;; (require 'popwin)
-;; (setq display-buffer-function 'popwin:display-buffer)
-;; (setq anything-samewindow nil)
-;; (push '("*anything*" :height 20) popwin:special-display-config)
-;; (push '(" *auto-async-byte-compile*" :position bottom :noselect t) popwin:special-display-config)
-;; (global-set-key (kbd "C-z") popwin:keymap)           ; popwin
-
-;(require 'popwin)
-;(popwin-mode 1)
-
-;(setq display-buffer-function 'popwin:display-buffer)
-;(setq popwin:popup-window-position 'bottom)
-
-;; M-x anything
-;(setq anything-samewindow nil)
-;(push '("*anything*" :height 20) popwin:special-display-config)
-
-;; M-x dired-jump-other-window
-;(push '(dired-mode :position top :height 40) popwin:special-display-config)
-
-
-;; M-!
-;(push '("*Shell Command Output*" :height 40) popwin:special-display-config)
-
-;; cscope
-;;(push "*cscope*" popwin:special-display-config)
-
-;;(push '("*grep*" :position top :height 40) popwin:special-display-config)
-;;(push '("*grep*" :noselect t) popwin:special-display-config)
-
-;; M-x compile
-;(push '(compilation-mode :noselect t) popwin:special-display-config)
-
-;(push '("*byte-compile*" :noselect t) popwin:special-display-config)
-
-;(global-set-key (kbd "C-z") popwin:keymap)
-;; Keymap:
-;; | Key    | Command                               |
-;; |--------+---------------------------------------|
-;; | b      | popwin:popup-buffer                   |
-;; | l      | popwin:popup-last-buffer              |
-;; | o      | popwin:display-buffer                 |
-;; | C-b    | popwin:switch-to-last-buffer          |
-;; | C-p    | popwin:original-pop-to-last-buffer    |
-;; | C-o    | popwin:original-display-last-buffer   |
-;; | SPC    | popwin:select-popup-window            |
-;; | s      | popwin:stick-popup-window             |
-;; | 0      | popwin:close-popup-window             |
-;; | f, C-f | popwin:find-file                      |
-;; | e      | popwin:messages                       |
-;; | C-u    | popwin:universal-display              |
-;; | 1      | popwin:one-window                     |
-
-
 
 ;; 　拡張子とメジャーモードの関連付け
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
@@ -325,24 +225,6 @@
   '(google-translate-default-source-language "en")
   '(google-translate-default-target-language "ja"))
 
-;; popwin.el
-;;;;(require 'popwin)
-;; おまじない（よく分かってない、、）
-;;;;(setq display-buffer-function 'popwin:display-buffer)
-;; ポップアップを画面下に表示
-;;;;(setq popwin:popup-window-position 'bottom)
-
-;; google-translate.elの翻訳バッファをポップアップで表示させる
-;;;;(push '("*Google Translate*") popwin:special-display-config)
-
-;; スペルチェック
-;; (setq-default ispell-program-name "aspell")
-;; (setq ispell-grep-command "grep")
-;; (eval-after-load "ispell"
-;;  '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
-;; (setq flyspell-issue-welcome-flag nil)
-
-
 ;================================================================
 ;; tmux風　rotate window
 ;================================================================
@@ -364,8 +246,6 @@
   (require 'mozc)
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
-  ;;(global-set-key (kbd "M-`") 'toggle-input-method)
-  ;; (global-set-key [?\S-\ ] 'toggle-input-method) ;; shift + space
   (global-set-key (kbd "C-o") 'toggle-input-method)
   (set-frame-font "Monaco-8") ;; フォント linux ;
   (prefer-coding-system 'utf-8-unix)
