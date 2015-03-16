@@ -275,23 +275,28 @@
 		initial-frame-alist))
   (setq default-frame-alist initial-frame-alist))
 
+;; 最近使ったファイル一覧を表示
+(setq recentf-max-saved-items 5000)
+(setq recentf-exclude '("/TAGS$" "/var/tmp/"))
+(require 'recentf-ext)
+(global-set-key (kbd "\C-x\ \C-r") 'recentf-open-files)
+
+(require 'color-theme)
+(add-to-list 'load-path "~/.emacs.d/lisp/emacs-color-theme-solarized-master")
+(require 'color-theme-solarized)
+(load-theme 'solarized t)
+
+(cua-mode t) ;; cua-mode 矩形選択 C-RETで起動 M-x cua-modeでenabledにする
+(setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
+(setq x-select-enable-clipboard t); クリップボードとキルリングを同期させる
+
 (if window-system
     (progn
       (auto-image-file-mode t) ;; 画像ファイルを表示
-      (cua-mode t) ;; cua-mode 矩形選択 C-RETで起動 M-x cua-modeでenabledにする
-      (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
-      (setq x-select-enable-clipboard t); クリップボードとキルリングを同期させる
       ;; (set-frame-parameter (selected-frame) 'alpha '(0.90)) ;; フレームの透明度
       (tool-bar-mode 0) ;;; メニューバー、スクロールバーを消す
       (menu-bar-mode 0) ;;; メニューバー、スクロールバーを消す
       (toggle-scroll-bar nil)
-      (require 'color-theme)
-      (color-theme-initialize)
-      (color-theme-dark-laptop)
-      ;; (require 'color-theme-tangotango)
-      ;; (require 'color-theme-wombat)
-      ;;(color-theme-wombat)
-      ;; (color-theme-sanityinc-tomorrow-night)
       ;; カーソル行をハイライトする
       (defface hlline-face
 	'((((class color)
@@ -308,11 +313,6 @@
       (set-face-background 'region "medium blue")
       (global-hl-line-mode)
 
-      ;; 最近使ったファイル一覧を表示
-      (setq recentf-max-saved-items 5000)
-      (setq recentf-exclude '("/TAGS$" "/var/tmp/"))
-      (require 'recentf-ext)
-      (global-set-key (kbd "C-@") 'recentf-open-files)
       ))
 
 ;; 多重起動の防止
