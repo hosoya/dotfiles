@@ -246,7 +246,12 @@
   (require 'mozc)
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
-  (global-set-key (kbd "C-o") 'toggle-input-method)
+  (setq mozc-candidate-style 'overlay)
+;  (global-set-key (kbd "C-o") 'toggle-input-method)
+  (add-hook 'mozc-mode-hook
+	    (lambda()
+	      (define-key mozc-mode-map (kbd "C-o") 'toggle-input-method)))
+  (setq mozc-candidate-style 'overlay)
   (set-frame-font "Monaco-8") ;; フォント linux ;
   (prefer-coding-system 'utf-8-unix)
   (set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
