@@ -124,7 +124,9 @@
 (setq ag-reuse-buffers 't)
 
 ;CSCOPE
+(setq cscope-do-not-update-database t)
 (require 'xcscope)
+(cscope-setup)
 
 ;フレーム版
 (require 'sr-speedbar)
@@ -247,11 +249,10 @@
   (set-language-environment "Japanese")
   (setq default-input-method "japanese-mozc")
   (setq mozc-candidate-style 'overlay)
-;  (global-set-key (kbd "C-o") 'toggle-input-method)
-  (add-hook 'mozc-mode-hook
-	    (lambda()
-	      (define-key mozc-mode-map (kbd "C-o") 'toggle-input-method)))
-  (setq mozc-candidate-style 'overlay)
+  (global-set-key (kbd "C-o") 'toggle-input-method)
+  ;; (add-hook 'mozc-mode-hook
+  ;; 	    (lambda()
+  ;; 	      (define-key mozc-mode-map (kbd "C-o") 'toggle-input-method)))
   (set-frame-font "Monaco-8") ;; フォント linux ;
   (prefer-coding-system 'utf-8-unix)
   (set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
@@ -286,10 +287,23 @@
 (require 'recentf-ext)
 (global-set-key (kbd "\C-x\ \C-r") 'recentf-open-files)
 
-(require 'color-theme)
-(add-to-list 'load-path "~/.emacs.d/lisp/emacs-color-theme-solarized-master")
-(require 'color-theme-solarized)
-(load-theme 'solarized t)
+;(require 'color-theme)
+;(color-theme-initialize)
+;; (add-to-list 'load-path "~/.emacs.d/lisp/emacs-color-theme-solarized-master")
+;; (require 'color-theme-solarized)
+;; (load-theme 'solarized t)
+;(load-theme dark-laptop)
+;(color-theme-dark-laptop)
+;; (load-theme 'misterioso t)
+;; (load-theme 'wombat t)
+;; (load-theme 'wheatgrass t)
+;; (load-theme 'tsdh-dark t)
+;; (load-theme 'tango-dark t)
+;; (load-theme 'manoj-dark t)
+(load-theme 'molokai t)
+
+
+
 
 (cua-mode t) ;; cua-mode 矩形選択 C-RETで起動 M-x cua-modeでenabledにする
 (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
@@ -317,7 +331,6 @@
       ;;(setq hl-line-face 'underline)
       (set-face-background 'region "medium blue")
       (global-hl-line-mode)
-
       ))
 
 ;; 多重起動の防止
