@@ -287,8 +287,8 @@
 (require 'recentf-ext)
 (global-set-key (kbd "\C-x\ \C-r") 'recentf-open-files)
 
-;(require 'color-theme)
-;(color-theme-initialize)
+;; (require 'color-theme)
+;; (color-theme-initialize)
 ;; (add-to-list 'load-path "~/.emacs.d/lisp/emacs-color-theme-solarized-master")
 ;; (require 'color-theme-solarized)
 ;; (load-theme 'solarized t)
@@ -300,8 +300,9 @@
 ;; (load-theme 'tsdh-dark t)
 ;; (load-theme 'tango-dark t)
 ;; (load-theme 'manoj-dark t)
-(load-theme 'molokai t)
-
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+;;(load-theme 'molokai t)
+(setq molokai-theme-kit t)
 
 
 
