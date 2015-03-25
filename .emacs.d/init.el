@@ -287,31 +287,32 @@
 (require 'recentf-ext)
 (global-set-key (kbd "\C-x\ \C-r") 'recentf-open-files)
 
-;; (require 'color-theme)
-;; (color-theme-initialize)
-;; (add-to-list 'load-path "~/.emacs.d/lisp/emacs-color-theme-solarized-master")
-;; (require 'color-theme-solarized)
-;; (load-theme 'solarized t)
-;(load-theme dark-laptop)
-;(color-theme-dark-laptop)
-;; (load-theme 'misterioso t)
-;; (load-theme 'wombat t)
-;; (load-theme 'wheatgrass t)
-;; (load-theme 'tsdh-dark t)
-;; (load-theme 'tango-dark t)
-;; (load-theme 'manoj-dark t)
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;;(load-theme 'molokai t)
-(setq molokai-theme-kit t)
-
-
 
 (cua-mode t) ;; cua-mode 矩形選択 C-RETで起動 M-x cua-modeでenabledにする
 (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
 (setq x-select-enable-clipboard t); クリップボードとキルリングを同期させる
 
+
+
 (if window-system
     (progn
+      ;; (require 'color-theme)
+      ;; (color-theme-initialize)
+      ;; (add-to-list 'load-path "~/.emacs.d/lisp/emacs-color-theme-solarized-master")
+      ;; (require 'color-theme-solarized)
+      ;; (load-theme 'solarized t)
+					;(load-theme dark-laptop)
+					;(color-theme-dark-laptop)
+      ;; (load-theme 'misterioso t)
+      ;; (load-theme 'wombat t)
+      ;; (load-theme 'wheatgrass t)
+      ;; (load-theme 'tsdh-dark t)
+      ;; (load-theme 'tango-dark t)
+      ;; (load-theme 'manoj-dark t)
+      (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+      ;;(load-theme 'molokai t)
+      (setq molokai-theme-kit t)
+
       (auto-image-file-mode t) ;; 画像ファイルを表示
       ;; (set-frame-parameter (selected-frame) 'alpha '(0.90)) ;; フレームの透明度
       (tool-bar-mode 0) ;;; メニューバー、スクロールバーを消す
@@ -332,7 +333,10 @@
       ;;(setq hl-line-face 'underline)
       (set-face-background 'region "medium blue")
       (global-hl-line-mode)
-      ))
+      )
+  (progn
+    (load-theme 'dichromacy t)
+    ))
 
 ;; 多重起動の防止
 (require 'server)
