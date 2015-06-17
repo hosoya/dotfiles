@@ -12,12 +12,16 @@ if [ -f ${HOME}/.zshenv ]; then
   source ${HOME}/.zshenv
 fi
 
+
+export TERM="xterm-256color"
+
 export PATH=~/.zsh/diff-highlight:$PATH
 fpath=(~/.zsh/completion $fpath)
 source ~/.zsh/completion/git-prompt.sh
 setopt TRANSIENT_RPROMPT
 precmd () {
-    RPROMPT=`echo $(__git_ps1 "[%s]")|sed -e s/%/%%/|sed -e s/%%%/%%/|sed -e 's/\\$/\\\\$/'`
+    RPROMPT="%{${fg[cyan]}%}%~ %{${reset_color}%}"
+    RPROMPT=$RPROMPT`echo $(__git_ps1 "[%s]")|sed -e s/%/%%/|sed -e s/%%%/%%/|sed -e 's/\\$/\\\\$/'`
 }
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
@@ -40,8 +44,6 @@ zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name ''
 
-# この行は現在のパスを表示する設定です。ブランチを表示して色をつける設定とは関係ありません
-RPROMPT="%{${fg[cyan]}%}%~ %{${reset_color}%}"
 
 #### option, limit
 setopt autocd
