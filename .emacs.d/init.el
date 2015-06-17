@@ -14,6 +14,8 @@
 (windmove-default-keybindings) ; Shiftと矢印キーで分割ウィンドウを移動
 (define-key mode-specific-map "l" 'se/make-summary-buffer) ; summary
 
+(define-key global-map "\C-z" 'scroll-down) ;; Ctrl+Zで最小化しない
+
 ;================================================================
 ;; anytihng
 ;================================================================
@@ -164,6 +166,9 @@
 ;; file名の補完で大文字小文字を区別しない
 (setq completion-ignore-case t)
 
+;;find-fileのファイル名補完で大文字小文字を区別しない設定
+(setq read-file-name-completion-ignore-case t)
+
 ;; バッファ自動再読み込み
 (global-auto-revert-mode 1)
 (setq auto-revert-interval 1)
@@ -292,32 +297,28 @@
 (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
 (setq x-select-enable-clipboard t); クリップボードとキルリングを同期させる
 
-
+(when (require 'color-theme nil t)
+  (color-theme-initialize)
+  ;;;color-theme
+  (require 'color-theme)
+  (color-theme-initialize)
+  ;(color-theme-clarity)
+  ;(color-theme-euphoria)
+;  (color-theme-gnome2)
+ ;; (color-theme-gray30)
+  ;; (color-theme-arjan)
+  ;(color-theme-robin-hood)
+  ;(color-theme-subtle-hacker)
+;;  (color-theme-dark-laptop)
+  (color-theme-ld-dark)
+  ;(color-theme-hober)
+  (global-hl-line-mode)
+)
 
 (if window-system
     (progn
-      ;; (require 'color-theme)
-      ;; (color-theme-initialize)
-      ;; (add-to-list 'load-path "~/.emacs.d/lisp/emacs-color-theme-solarized-master")
-      ;; (require 'color-theme-solarized)
-      ;; (load-theme 'solarized t)
-					;(load-theme dark-laptop)
-					;(color-theme-dark-laptop)
-      ;; (load-theme 'misterioso t)
-      ;; (load-theme 'wombat t)
-      ;; (load-theme 'wheatgrass t)
-      ;; (load-theme 'tsdh-dark t)
-      ;; (load-theme 'tango-dark t)
-      ;; (load-theme 'manoj-dark t)
-      (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-      ;;(load-theme 'molokai t)
-      (setq molokai-theme-kit t)
-
-      (auto-image-file-mode t) ;; 画像ファイルを表示
+      ;; (auto-image-file-mode t) ;; 画像ファイルを表示
       ;; (set-frame-parameter (selected-frame) 'alpha '(0.90)) ;; フレームの透明度
-      (tool-bar-mode 0) ;;; メニューバー、スクロールバーを消す
-      (menu-bar-mode 0) ;;; メニューバー、スクロールバーを消す
-      (toggle-scroll-bar nil)
       ;; カーソル行をハイライトする
       (defface hlline-face
 	'((((class color)
@@ -331,12 +332,15 @@
 	"*Face used by hl-line.")
       (setq hl-line-face 'hlline-face)
       ;;(setq hl-line-face 'underline)
-      (set-face-background 'region "medium blue")
-      (global-hl-line-mode)
+      ;; (set-face-background 'region "medium blue")
+
+      (tool-bar-mode 0) ;;; メニューバー、スクロールバーを消す
+      (menu-bar-mode 0) ;;; メニューバー、スクロールバーを消す
+      (toggle-scroll-bar nil)
       )
-  (progn
-    (load-theme 'dichromacy t)
-    ))
+  (
+   ))
+
 
 ;; 多重起動の防止
 (require 'server)
