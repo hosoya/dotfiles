@@ -297,6 +297,32 @@
 (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
 (setq x-select-enable-clipboard t); クリップボードとキルリングを同期させる
 
+;; popwin.el
+;; | Key    | Command                               |
+;; |--------+---------------------------------------|
+;; | b      | popwin:popup-buffer                   |
+;; | l      | popwin:popup-last-buffer              |
+;; | o      | popwin:display-buffer                 |
+;; | C-b    | popwin:switch-to-last-buffer          |
+;; | C-p    | popwin:original-pop-to-last-buffer    |
+;; | C-o    | popwin:original-display-last-buffer   |
+;; | SPC    | popwin:select-popup-window            |
+;; | s      | popwin:stick-popup-window             |
+;; | 0      | popwin:close-popup-window             |
+;; | f, C-f | popwin:find-file                      |
+;; | e      | popwin:messages                       |
+;; | C-u    | popwin:universal-display              |
+;; | 1      | popwin:one-window                     |
+;; (require 'popwin)
+;; (popwin-mode 1)
+;; (global-set-key (kbd "C-j") popwin:keymap)
+;; (setq display-buffer-function 'popwin:display-buffer)
+;; (setq popwin:popup-window-position 'bottom)
+;; (push '("*grep*" :noselect t) popwin:special-display-config)
+
+
+
+;; theme
 (when (require 'color-theme nil t)
   (color-theme-initialize)
   ;;;color-theme
@@ -337,6 +363,13 @@
       (tool-bar-mode 0) ;;; メニューバー、スクロールバーを消す
       (menu-bar-mode 0) ;;; メニューバー、スクロールバーを消す
       (toggle-scroll-bar nil)
+      (set-frame-parameter nil 'alpha 85) ;透明度
+      ;; 透明度を変更するコマンド M-x set-alpha
+      ;; http://qiita.com/marcy@github/items/ba0d018a03381a964f24
+      (defun set-alpha (alpha-num)
+	"set frame parameter 'alpha"
+	(interactive "nAlpha: ")
+	(set-frame-parameter nil 'alpha (cons alpha-num '(90))))
       )
   (
    ))
