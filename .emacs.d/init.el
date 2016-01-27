@@ -221,6 +221,10 @@
 (setq mew-fcc "+outbox") ; 送信メールを保存
 (setq exec-path (cons "/usr/bin" exec-path))
 
+(require 'open-junk-file)
+(setq open-junk-file-format "~/junk/%Y/%m/%Y-%m-%d-%H%M%S.")
+(global-set-key (kbd "C-x j") 'open-junk-file)
+
 ;================================================================
 ;; 翻訳
 ;================================================================
