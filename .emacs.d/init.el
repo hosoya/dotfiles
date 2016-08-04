@@ -75,6 +75,7 @@
 ;;; 行番号を左に表示
 (require 'linum)
 (global-linum-mode t)      ; デフォルトで linum-mode を有効にする
+(setq linum-format "%4d\u2502")
 
 ;;; 対応する括弧を表示させる
 (show-paren-mode 1)
@@ -95,6 +96,12 @@
 
 ;; 折り返さない
 (setq-default truncate-lines t)
+
+;; ediff
+;; コントロール用のバッファを同一フレーム内に表示
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+;; diffのバッファを上下ではなく左右に並べる
+(setq ediff-split-window-function 'split-window-horizontally)
 
 ;; diffの表示方法を変更 その２
 (require 'diff-mode)
