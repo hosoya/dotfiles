@@ -12,9 +12,9 @@
   lga = log --oneline --graph --decorate --all
 
 [pager]
-        log = diff-highlight | less
-        show = diff-highlight | less
-        diff = diff-highlight | less
+#        log = diff-highlight | less
+#        show = diff-highlight | less
+#        diff = diff-highlight | less
 
 [merge]
   tool = ediff
