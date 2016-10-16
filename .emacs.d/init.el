@@ -138,7 +138,7 @@
 (cscope-setup)
 
 ;フレーム版
-(require 'sr-speedbar)
+;(require 'sr-speedbar)
 
 ;;; バックアップファイルを作らない
 (setq make-backup-files nil)
