@@ -5043,7 +5043,7 @@ If FILE is nil return nil."
               ;; Big value empowers anything/recentf
               (when (and (numberp recentf-max-saved-items)
                          (<= recentf-max-saved-items 20))
-                (setq recentf-max-saved-items 500))))
+                (setq recentf-max-saved-items 4000))))
     (candidates . recentf-list)
     (match anything-c-match-on-file-name
      anything-c-match-on-directory-name)

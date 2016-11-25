@@ -298,10 +298,14 @@
   (setq default-frame-alist initial-frame-alist))
 
 ;; 最近使ったファイル一覧を表示
+(require 'recentf)
 (setq recentf-max-saved-items 5000)
+(setq recentf-max-menu-items 20)
 (setq recentf-exclude '("/TAGS$" "/var/tmp/"))
+(run-at-time nil (* 5 60) 'recentf-save-list)
 (require 'recentf-ext)
 (global-set-key (kbd "\C-x\ \C-r") 'recentf-open-files)
+
 
 
 (cua-mode t) ;; cua-mode 矩形選択 C-RETで起動 M-x cua-modeでenabledにする
