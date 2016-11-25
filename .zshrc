@@ -171,6 +171,11 @@ fi
 #     zstyle ':completion:*' completer _oldlist _complete
 # fi
 
+# enhancd
+source ~/.dotfiles/enhancd/init.sh
+ENHANCD_FILTER=percol
+export ENHANCD_FILTER
+
 #export FPATH="$FPATH:/opt/local/share/zsh/site-functions/"
 if [ -f /usr/share/autojump/autojump.zsh ]; then
     . /usr/share/autojump/autojump.zsh
