@@ -269,7 +269,7 @@
   ;; (add-hook 'mozc-mode-hook
   ;; 	    (lambda()
   ;; 	      (define-key mozc-mode-map (kbd "C-o") 'toggle-input-method)))
-  (set-frame-font "Monaco-8") ;; フォント linux ;
+  (set-frame-font "Migu 1M-10") ;; フォント linux ;
   (prefer-coding-system 'utf-8-unix)
   (set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
   (set-default-coding-systems 'utf-8-unix)
