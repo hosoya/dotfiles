@@ -61,10 +61,12 @@
 (add-hook 'c-mode-hook
 	  (lambda ()
 	    (c-set-style "linux")
+		;;(c-set-style "stroustrup")
 	    (setq indent-tabs-mode t)))
 
 ;;タブ幅を 8
-(setq-default tab-width 8)
+(setq-default tab-width 4)
+;;(setq-default tab-width 8)
 ;================================================================
 ;; 表示
 ;================================================================
