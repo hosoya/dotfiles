@@ -271,7 +271,7 @@
   ;; (add-hook 'mozc-mode-hook
   ;; 	    (lambda()
   ;; 	      (define-key mozc-mode-map (kbd "C-o") 'toggle-input-method)))
-  (set-frame-font "Migu 1M-9") ;; フォント linux ;
+  (set-frame-font "Migu 1M-10") ;; フォント linux ;
   (prefer-coding-system 'utf-8-unix)
   (set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
   (set-default-coding-systems 'utf-8-unix)
@@ -360,8 +360,6 @@
 
 (if window-system
     (progn
-      ;; (auto-image-file-mode t) ;; 画像ファイルを表示
-      ;; (set-frame-parameter (selected-frame) 'alpha '(0.90)) ;; フレームの透明度
       ;; カーソル行をハイライトする
       (defface hlline-face
 	'((((class color)
@@ -380,13 +378,6 @@
       (tool-bar-mode 0) ;;; メニューバー、スクロールバーを消す
       (menu-bar-mode 0) ;;; メニューバー、スクロールバーを消す
       (toggle-scroll-bar nil)
-      (set-frame-parameter nil 'alpha 85) ;透明度
-      ;; 透明度を変更するコマンド M-x set-alpha
-      ;; http://qiita.com/marcy@github/items/ba0d018a03381a964f24
-      (defun set-alpha (alpha-num)
-	"set frame parameter 'alpha"
-	(interactive "nAlpha: ")
-	(set-frame-parameter nil 'alpha (cons alpha-num '(90))))
       )
   (
    ))
