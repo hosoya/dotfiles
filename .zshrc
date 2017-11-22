@@ -21,14 +21,14 @@ source ~/.zsh/completion/git-prompt.sh
 setopt TRANSIENT_RPROMPT
 precmd () {
     RPROMPT="%{${fg[cyan]}%}%~ %{${reset_color}%}"
-    RPROMPT=$RPROMPT`echo $(__git_ps1 "[%s]")|sed -e s/%/%%/|sed -e s/%%%/%%/|sed -e 's/\\$/\\\\$/'`
+#    RPROMPT=$RPROMPT`echo $(__git_ps1 "[%s]")|sed -e s/%/%%/|sed -e s/%%%/%%/|sed -e 's/\\$/\\\\$/'`
 }
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM="auto"
-GIT_PS1_DESCRIBE_STYLE="branch"
-GIT_PS1_SHOWCOLORHINTS=1
+# GIT_PS1_SHOWDIRTYSTATE=1
+# GIT_PS1_SHOWSTASHSTATE=1
+# GIT_PS1_SHOWUNTRACKEDFILES=1
+# GIT_PS1_SHOWUPSTREAM="auto"
+# GIT_PS1_DESCRIBE_STYLE="branch"
+# GIT_PS1_SHOWCOLORHINTS=1
 
 #### autoload
 autoload -Uz add-zsh-hook
