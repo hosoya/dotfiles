@@ -4,6 +4,7 @@
 (add-to-list 'load-path "~/.emacs.d/auto-install/")
 (add-to-list 'load-path "~/.emacs.d/elpa")
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ;================================================================
 ;; キーバインド
@@ -337,44 +338,11 @@
 ;; (setq popwin:popup-window-position 'bottom)
 ;; (push '("*grep*" :noselect t) popwin:special-display-config)
 
-
-
 ;; theme
-(when (require 'color-theme nil t)
-  (color-theme-initialize)
-  ;;;color-theme
-  (require 'color-theme)
-  (color-theme-initialize)
-  ;(color-theme-clarity)
-  ;(color-theme-euphoria)
-;  (color-theme-gnome2)
- ;; (color-theme-gray30)
-  ;; (color-theme-arjan)
-  ;(color-theme-robin-hood)
-  ;(color-theme-subtle-hacker)
-;;  (color-theme-dark-laptop)
-  (color-theme-ld-dark)
-  ;(color-theme-hober)
-  (global-hl-line-mode)
-)
+(load-theme 'hc-zenburn t)
 
 (if window-system
     (progn
-      ;; カーソル行をハイライトする
-      (defface hlline-face
-	'((((class color)
-	    (background dark))
-	   (:background "gray25"))
-	  (((class color)
-	    (background light))
-	   (:background "blue"))
-	  (t
-	   ()))
-	"*Face used by hl-line.")
-      (setq hl-line-face 'hlline-face)
-      ;;(setq hl-line-face 'underline)
-      ;; (set-face-background 'region "medium blue")
-
       (tool-bar-mode 0) ;;; メニューバー、スクロールバーを消す
       (menu-bar-mode 0) ;;; メニューバー、スクロールバーを消す
       (toggle-scroll-bar nil)
