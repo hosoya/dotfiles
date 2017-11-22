@@ -62,18 +62,15 @@
 (add-hook 'c-mode-hook
 	  (lambda ()
 	    (c-set-style "linux")
-		;;(c-set-style "stroustrup")
+;;	    (c-set-style "stroustrup")
 	    (setq indent-tabs-mode t)))
 
 ;;タブ幅を 8
-(setq-default tab-width 4)
-;;(setq-default tab-width 8)
+(setq-default tab-width 8)
 ;================================================================
 ;; 表示
 ;================================================================
-;; (display-time)
 ;;; 行番号・桁番号を表示させる
-;(line-number-mode 1)
 (column-number-mode 1)
 ;;; 行番号を左に表示
 (require 'linum)
@@ -95,7 +92,6 @@
 
 ;; スタートアップ非表示
 (setq inhibit-startup-screen t)
-
 
 ;; 折り返さない
 (setq-default truncate-lines t)
@@ -190,7 +186,6 @@
 
 (require 'moccur-edit)
 
-
 ;; 　拡張子とメジャーモードの関連付け
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 (add-to-list 'auto-mode-alist '("\\.mak$" . makefile-mode))
@@ -198,16 +193,13 @@
 (add-to-list 'auto-mode-alist '("\\.dtsi$" . c-mode))
 (add-to-list 'auto-mode-alist '("\\.dts$" . c-mode))
 
-
 ;; マークダウン
 
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
-;; (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-;; (add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -224,12 +216,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;;; Mew を使う為の設定
-(autoload 'mew "mew" nil t)
-(autoload 'mew-send "mew" nil t)
-(setq mew-fcc "+outbox") ; 送信メールを保存
-(setq exec-path (cons "/usr/bin" exec-path))
 
 (require 'open-junk-file)
 (setq open-junk-file-format "~/junk/%Y/%m/%Y-%m-%d-%H%M%S.")
@@ -253,15 +239,9 @@
 (global-set-key (kbd "C-t") 'rotate-layout)
 (global-set-key (kbd "M-t") 'rotate-window)
 
-
 ;================================================================
 ;; Emacs の種類バージョンを判別するための変数を定義
 ;================================================================
-;; @see http://github.com/elim/dotemacs/blob/master/init.el
-;(defun x->bool (elt) (not (not elt))
-;(defvar emacs23-p (equal emacs-major-version 23))
-;(defvar emacs24-p (equal emacs-major-version 24))
-;(defvar linux-p (eq system-type 'gnu/linux))
 
 (when (eq system-type 'gnu/linux)
   (require 'mozc)
@@ -269,9 +249,6 @@
   (setq default-input-method "japanese-mozc")
   (setq mozc-candidate-style 'overlay)
   (global-set-key (kbd "C-o") 'toggle-input-method)
-  ;; (add-hook 'mozc-mode-hook
-  ;; 	    (lambda()
-  ;; 	      (define-key mozc-mode-map (kbd "C-o") 'toggle-input-method)))
   (set-frame-font "Migu 1M-10") ;; フォント linux ;
   (prefer-coding-system 'utf-8-unix)
   (set-locale-environment "en_US.UTF-8") ; "ja_JP.UTF-8"
@@ -308,8 +285,6 @@
 (run-at-time nil (* 5 60) 'recentf-save-list)
 (require 'recentf-ext)
 (global-set-key (kbd "\C-x\ \C-r") 'recentf-open-files)
-
-
 
 (cua-mode t) ;; cua-mode 矩形選択 C-RETで起動 M-x cua-modeでenabledにする
 (setq cua-enable-cua-keys nil) ;; 変なキーバインド禁止
