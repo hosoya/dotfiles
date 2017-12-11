@@ -316,6 +316,11 @@
 ;; theme
 (load-theme 'hc-zenburn t)
 
+;; 現在行をハイライト
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "#3e4446")
+(set-face-foreground 'highlight t)
+
 (if window-system
     (progn
       (tool-bar-mode 0) ;;; メニューバー、スクロールバーを消す
