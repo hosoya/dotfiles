@@ -15,7 +15,8 @@
 (windmove-default-keybindings) ; Shiftと矢印キーで分割ウィンドウを移動
 (define-key mode-specific-map "l" 'se/make-summary-buffer) ; summary
 (define-key global-map "\C-z" 'scroll-down) ;; Ctrl+Zで最小化しない
-(define-key global-map (kbd "C-i") 'anything-imenu)
+(global-set-key (kbd "C-x m") 'anything-imenu) ; imenu
+(global-set-key (kbd "C-x i") 'rgrep) ; grep
 ;================================================================
 ;; anytihng
 ;================================================================
