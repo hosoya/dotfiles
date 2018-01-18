@@ -14,9 +14,8 @@
 ;; (define-key global-map "\C-z" 'undo)		     ; undo
 (windmove-default-keybindings) ; Shiftと矢印キーで分割ウィンドウを移動
 (define-key mode-specific-map "l" 'se/make-summary-buffer) ; summary
-
 (define-key global-map "\C-z" 'scroll-down) ;; Ctrl+Zで最小化しない
-
+(define-key global-map (kbd "C-i") 'anything-imenu)
 ;================================================================
 ;; anytihng
 ;================================================================
@@ -319,7 +318,11 @@
 ;; 現在行をハイライト
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#3e4446")
-(set-face-foreground 'highlight t)
+;;(set-face-foreground 'highlight nil)
+
+;; 行末の空白を強調表示
+(setq-default show-trailing-whitespace t)
+(set-face-background 'trailing-whitespace "#777777")
 
 (if window-system
     (progn
