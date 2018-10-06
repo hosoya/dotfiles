@@ -99,21 +99,21 @@
 (setq ediff-split-window-function 'split-window-horizontally)
 
 ;; diffの表示方法を変更 その２
-(require 'diff-mode)
-(set-face-attribute 'diff-added-face nil
-		    :background nil :foreground "green"
-		    :weight 'normal)
-(set-face-attribute 'diff-removed-face nil
-		    :background nil :foreground "red"
-		    :weight 'normal)
+;; (require 'diff-mode)
+;; (set-face-attribute 'diff-added-face nil
+;; 		    :background nil :foreground "green"
+;; 		    :weight 'normal)
+;; (set-face-attribute 'diff-removed-face nil
+;; 		    :background nil :foreground "red"
+;; 		    :weight 'normal)
 
-(set-face-attribute 'diff-file-header-face nil
-		    :background nil :weight 'extra-bold)
+;; (set-face-attribute 'diff-file-header-face nil
+;; 		    :background nil :weight 'extra-bold)
 
-(set-face-attribute 'diff-hunk-header-face nil
-		    :foreground "chocolate4"
-		    :background "white" :weight 'extra-bold
-		    :underline t :inherit nil)
+;; (set-face-attribute 'diff-hunk-header-face nil
+;; 		    :foreground "chocolate4"
+;; 		    :background "white" :weight 'extra-bold
+;; 		    :underline t :inherit nil)
 
 ;; タイトルバーにファイルのフルパス表示
 (setq frame-title-format
@@ -225,8 +225,8 @@
 (global-set-key "\C-xT" 'google-translate-at-point-reverse) ; ja -> en
 ;; 翻訳のデフォルト値を設定（en -> ja）
 (custom-set-variables
-  '(google-translate-default-source-language "en")
   '(google-translate-default-target-language "ja"))
+  '(google-translate-default-source-language "en")
 
 ;================================================================
 ;; tmux風　rotate window
@@ -311,15 +311,16 @@
 
 ;; theme
 (load-theme 'hc-zenburn t)
+;;(load-theme 'zenburn t)
 
 ;; 現在行をハイライト
 (global-hl-line-mode 1)
 (set-face-background 'hl-line "#3e4446")
-;;(set-face-foreground 'highlight nil)
+(set-face-foreground 'highlight nil)
 
 ;; 行末の空白を強調表示
 (setq-default show-trailing-whitespace t)
-(set-face-background 'trailing-whitespace "#777777")
+(set-face-background 'trailing-whitespace "#777777")  
 
 (if window-system
     (progn
