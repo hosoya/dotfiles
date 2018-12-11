@@ -11,7 +11,6 @@
 ;================================================================
 (define-key global-map "\C-h" 'delete-backward-char) ; 削除
 (define-key global-map "\M-?" 'help-for-help)	     ; ヘルプ
-;; (define-key global-map "\C-z" 'undo)		     ; undo
 (windmove-default-keybindings) ; Shiftと矢印キーで分割ウィンドウを移動
 (define-key mode-specific-map "l" 'se/make-summary-buffer) ; summary
 (define-key global-map "\C-z" 'scroll-down) ;; Ctrl+Zで最小化しない
@@ -98,23 +97,6 @@
 ;; diffのバッファを上下ではなく左右に並べる
 (setq ediff-split-window-function 'split-window-horizontally)
 
-;; diffの表示方法を変更 その２
-;; (require 'diff-mode)
-;; (set-face-attribute 'diff-added-face nil
-;; 		    :background nil :foreground "green"
-;; 		    :weight 'normal)
-;; (set-face-attribute 'diff-removed-face nil
-;; 		    :background nil :foreground "red"
-;; 		    :weight 'normal)
-
-;; (set-face-attribute 'diff-file-header-face nil
-;; 		    :background nil :weight 'extra-bold)
-
-;; (set-face-attribute 'diff-hunk-header-face nil
-;; 		    :foreground "chocolate4"
-;; 		    :background "white" :weight 'extra-bold
-;; 		    :underline t :inherit nil)
-
 ;; タイトルバーにファイルのフルパス表示
 (setq frame-title-format
       (format "%%f - Emacs@%s" (system-name)))
@@ -148,10 +130,6 @@
 ;;; ファイル名がかぶった場合にバッファ名をわかりやすくする
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-
-;auto-complete
-;(require 'auto-complete)
-;(global-auto-complete-mode t)
 
 ;; 履歴を次回Emacs起動時にも保存する
 (savehist-mode 1)
@@ -189,23 +167,13 @@
 (add-to-list 'auto-mode-alist '("\\.dtsi$" . c-mode))
 (add-to-list 'auto-mode-alist '("\\.dts$" . c-mode))
 
-;; マークダウン
-
-(autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (deeper-blue)))
+ ;;'(custom-enabled-themes (quote (deeper-blue)))
  '(default-frame-alist (quote ((height . 70) (width . 120))))
- '(markdown-command "/usr/bin/multimarkdown")
- '(markdown-open-command "/opt/google/chrome/chrome"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -213,20 +181,10 @@
  ;; If there is more than one, they won't work right.
  )
 
+
 (require 'open-junk-file)
 (setq open-junk-file-format "~/junk/%Y/%m/%Y-%m-%d-%H%M%S.")
 (global-set-key (kbd "C-x j") 'open-junk-file)
-
-;================================================================
-;; 翻訳
-;================================================================
-(require 'google-translate)
-(global-set-key "\C-xt" 'google-translate-at-point)         ; en -> ja
-(global-set-key "\C-xT" 'google-translate-at-point-reverse) ; ja -> en
-;; 翻訳のデフォルト値を設定（en -> ja）
-(custom-set-variables
-  '(google-translate-default-target-language "ja"))
-  '(google-translate-default-source-language "en")
 
 ;================================================================
 ;; tmux風　rotate window
@@ -238,7 +196,6 @@
 ;================================================================
 ;; Emacs の種類バージョンを判別するための変数を定義
 ;================================================================
-
 (when (eq system-type 'gnu/linux)
   (require 'mozc)
   (set-language-environment "Japanese")
@@ -260,25 +217,12 @@
 		initial-frame-alist))
   )
 
-(when (eq system-type 'windows-nt)
-  (set-frame-font "ＭＳ ゴシック-9")
-  (setq file-name-coding-system 'sjis)
-  (setq locale-coding-system 'sjis)
-  ;;起動時のフレームサイズを設定する
-  (setq initial-frame-alist
-	(append (list
-		 '(width . 100)
-		 '(height . 50)
-		 )
-		initial-frame-alist))
-  (setq default-frame-alist initial-frame-alist))
-
 ;; 最近使ったファイル一覧を表示
 (require 'recentf)
 (setq recentf-max-saved-items 5000)
 (setq recentf-max-menu-items 20)
 (setq recentf-exclude '("/TAGS$" "/var/tmp/"))
-(run-at-time nil (* 5 60) 'recentf-save-list)
+(run-at-time nil (* 5 180) 'recentf-save-list)
 (require 'recentf-ext)
 (global-set-key (kbd "\C-x\ \C-r") 'recentf-open-files)
 
@@ -302,16 +246,15 @@
 ;; | e      | popwin:messages                       |
 ;; | C-u    | popwin:universal-display              |
 ;; | 1      | popwin:one-window                     |
-;; (require 'popwin)
-;; (popwin-mode 1)
-;; (global-set-key (kbd "C-j") popwin:keymap)
-;; (setq display-buffer-function 'popwin:display-buffer)
-;; (setq popwin:popup-window-position 'bottom)
-;; (push '("*grep*" :noselect t) popwin:special-display-config)
+(require 'popwin)
+(popwin-mode 1)
+(global-set-key (kbd "C-j") popwin:keymap)
+(setq display-buffer-function 'popwin:display-buffer)
+(setq popwin:popup-window-position 'bottom)
+(push '("*grep*" :noselect t) popwin:special-display-config)
 
 ;; theme
 (load-theme 'hc-zenburn t)
-;;(load-theme 'zenburn t)
 
 ;; 現在行をハイライト
 (global-hl-line-mode 1)
@@ -320,17 +263,17 @@
 
 ;; 行末の空白を強調表示
 (setq-default show-trailing-whitespace t)
-(set-face-background 'trailing-whitespace "#777777")  
+(set-face-background 'trailing-whitespace "#777777")
 
 (if window-system
     (progn
       (tool-bar-mode 0) ;;; メニューバー、スクロールバーを消す
       (menu-bar-mode 0) ;;; メニューバー、スクロールバーを消す
       (toggle-scroll-bar nil)
+      (set-frame-parameter nil 'alpha 95)
       )
   (
    ))
-
 
 ;; 多重起動の防止
 (require 'server)
